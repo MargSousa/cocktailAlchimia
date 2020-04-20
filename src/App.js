@@ -6,6 +6,7 @@ import Test from './components/Test';
 import Homepage from './components/Homepage';
 import DetailPage from './components/DetailPage';
 import ResultsPage from './components/ResultsPage';
+import AboutUs from './components/AboutUs';
 
 class App extends React.Component {
   constructor(props) {
@@ -17,12 +18,10 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Link to="/">Home</Link>
-          <Link to="/results/:search">Results</Link>
-          <Link to="/results/drinkinfo/:drink">Detailed Drink Info</Link>
-          <Link to="/drinkinfo/:drink">Pick from Random Drinks</Link>
-          <Link to="/test">TEST</Link>
-
+          <Link to="/">Home</Link> <Link to="/results/:search">Results</Link>{' '}
+          <Link to="/results/drinkinfo/:drink">Detailed Drink Info</Link>{' '}
+          <Link to="/drinkinfo/:drink">Pick from Random Drinks</Link>{' '}
+          <Link to="/aboutus">About Us</Link> <Link to="/test">TEST</Link>{' '}
           <Switch>
             <Route exact path="/" component={Homepage} />
             <Route exact path="/results/:search" component={ResultsPage} />
@@ -32,6 +31,7 @@ class App extends React.Component {
               component={DetailPage}
             />
             <Route exact path="/drinkinfo/:drink" component={DetailPage} />
+            <Route exact path="/aboutus" component={AboutUs} />
             <Route exact path="/test" component={Test} />
           </Switch>
         </div>
