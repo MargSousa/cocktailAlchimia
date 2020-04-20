@@ -17,12 +17,10 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Link to="/">Home</Link>
-          <Link to="/results/:search">Results</Link>
-          <Link to="/results/drinkinfo/:drink">Detailed Drink Info</Link>
-          <Link to="/drinkinfo/:drink">Pick from Random Drinks</Link>
-          <Link to="/test">TEST</Link>
-
+          <Link to="/">Home</Link> <Link to="/results/:search">Results</Link>{' '}
+          <Link to="/results/drinkinfo/:drink">Detailed Drink Info</Link>{' '}
+          <Link to="/drinkinfo/:drink">Pick from Random Drinks</Link>{' '}
+          <Link to="/test">TEST</Link>{' '}
           <Switch>
             <Route exact path="/" component={Homepage} />
             <Route exact path="/results/:search" component={ResultsPage} />
