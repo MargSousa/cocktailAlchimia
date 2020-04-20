@@ -1,4 +1,5 @@
 import React from 'react';
+import SearchLogo from './SearchLogo';
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -7,7 +8,11 @@ class Homepage extends React.Component {
   }
 
   render() {
-    return <h1>Homepage </h1>;
+    return (
+      <div>
+        <SearchLogo />
+      </div>
+    );
   }
 }
 export default Homepage;
