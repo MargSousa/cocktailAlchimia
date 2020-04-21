@@ -1,26 +1,35 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
 import './SearchLogo.css';
+
+// Search ingredient by name
+// https://www.thecocktaildb.com/api/json/v1/1/search.php?i=vodka
+// Search by ingredient
+// https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka
+
+// const urlByName = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=`;
+// const urlByIngredient = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=`;
 
 class SearchLogo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      search: 'Choose type of search...',
+      searchType: 'Choose type of search...',
       searchInputText: '',
     };
   }
 
   handleChange = (event) => {
     const { value, name } = event.target;
-    console.log(event.target.name);
-    console.log(event.target.value);
-    console.log(event.target.type);
-
     this.setState({
       [name]: value,
-      searchInputText: value,
     });
+  };
+
+  handleSearch = () => {
+    console.log(this.state.searchType);
+    console.log(this.state.searchInputText);
   };
 
   render() {
@@ -29,30 +38,32 @@ class SearchLogo extends React.Component {
 
     return (
       <div>
-        <img src="" alt="Logo" />
-        <div className="Dropdown">
+        {/* <img src="" alt="Logo" /> */}
+        <div className="search">
           <Form>
-            <Form.Group controlId="formGridState">
+            <Form.Group className="search-group" controlId="formGridState">
               <Form.Control
+                className="select-input"
                 as="select"
-                name="search"
+                name="searchType"
                 value={searchType}
                 onChange={this.handleChange}
               >
-                <option value="">Choose type of search...</option>
+                <option value="">Choose search type...</option>
                 <option value="Ingredients">By Ingredients</option>
                 <option value="Drinks">By Drinks</option>
               </Form.Control>
               <Form.Control
+                className="search-input"
                 name="searchInputText"
                 value={searchInputText}
-                placeholder="Search Here"
+                placeholder="Enter ingredient or drink name..."
                 onChange={this.handleChange}
+                autoComplete="off"
               />
+              <Button onClick={this.handleSearch}>Search</Button>
             </Form.Group>
           </Form>
-          <p>{searchType}</p>
-          <p>{searchInputText}</p>
         </div>
       </div>
     );

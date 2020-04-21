@@ -1,3 +1,32 @@
-.Dropdown {
-  width: 250px;
+.search {
+  height: 200px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.select-input {
+  width: 220px;
+}
+
+.search-input {
+  width: 300px;
+}
+
+@media (max-width: 640px) {
+  .select-input {
+    margin: 3px 0px 3px 60px;
+  }
+
+  .search-input {
+    margin: 3px 0px 3px 60px;
+  }
 }
