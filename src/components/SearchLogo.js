@@ -1,35 +1,142 @@
 import React from 'react';
+import axios from 'axios';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './SearchLogo.css';
 
-// Search ingredient by name
-// https://www.thecocktaildb.com/api/json/v1/1/search.php?i=vodka
+// Search cocktail by name
+// https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
 // Search by ingredient
-// https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Vodka
-
-// const urlByName = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=`;
-// const urlByIngredient = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=`;
+// https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin
 
 class SearchLogo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchType: 'Choose type of search...',
+      searchResults: [],
+      searchType: '',
       searchInputText: '',
+      isCocktailSelected: false,
+      isIngredientSelected: false,
     };
   }
 
-  handleChange = (event) => {
-    const { value, name } = event.target;
+  // handleChange = (event) => {
+  //   event.preventDefault();
+  //   const { value, name } = event.target;
+  //   const isSelected = true;
+  //   const { searchType } = this.state;
+
+  //   this.setState({
+  //     [name]: value,
+  //   });
+
+  //   if (searchType === 'Ingredients') {
+  //     console.log('ingredients');
+  //     this.setState({
+  //       isCocktailSelected: !isSelected,
+  //       isIngredientSelected: isSelected,
+  //     });
+  //   } else if (searchType === 'Drinks') {
+  //     console.log('drinks');
+  //     this.setState({
+  //       isCocktailSelected: isSelected,
+  //       isIngredientSelected: !isSelected,
+  //     });
+  //   }
+  // };
+
+  handleChangeDropdown = (event) => {
+    event.preventDefault();
+    const { value } = event.target;
+    const isSelected = true;
+
+    if (value !== '') {
+      const formSelect = document.getElementById('select');
+      formSelect.style.border = '1px solid grey';
+    }
+
     this.setState({
-      [name]: value,
+      searchType: value,
+    });
+
+    if (value === 'Ingredients') {
+      this.setState({
+        isCocktailSelected: !isSelected,
+        isIngredientSelected: isSelected,
+      });
+    } else if (value === 'Drinks') {
+      this.setState({
+        isCocktailSelected: isSelected,
+        isIngredientSelected: !isSelected,
+      });
+    }
+  };
+
+  handleChangeText = (event) => {
+    const { value } = event.target;
+
+    if (value !== '') {
+      const formSelect = document.getElementById('search');
+      formSelect.style.border = '1px solid grey';
+    }
+
+    this.setState({
+      searchInputText: value,
     });
   };
 
+  getDrinksData = () => {
+    let url = '';
+    const { isCocktailSelected } = this.state;
+    const { isIngredientSelected } = this.state;
+    const { searchInputText } = this.state;
+    const getIngredient = searchInputText;
+    const urlByName = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${getIngredient}`;
+    const urlByIngredient = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${getIngredient}`;
+
+    if (isCocktailSelected) {
+      url = urlByName;
+    } else if (isIngredientSelected) {
+      url = urlByIngredient;
+    }
+
+    axios
+      .get(url)
+      .then((response) => response.data)
+      .then((dataresult) => {
+        const results = dataresult.drinks;
+        if (results === null) {
+          alert('Sorry, no results found. Please do another search!');
+        } else {
+          this.setState({
+            searchResults: results,
+          });
+        }
+      });
+  };
+
+  validateInput = () => {
+    const { searchType } = this.state;
+    const { searchInputText } = this.state;
+
+    if (searchType === '') {
+      const formSelect = document.getElementById('select');
+      formSelect.style.border = '1px solid red';
+    }
+    if (searchInputText === '') {
+      const formSelect = document.getElementById('search');
+      formSelect.style.border = '1px solid red';
+    }
+  };
+
   handleSearch = () => {
-    console.log(this.state.searchType);
-    console.log(this.state.searchInputText);
+    this.validateInput();
+    this.getDrinksData();
+  };
+
+  handleSubmit = (event) => {
+    event.preventDefault();
   };
 
   render() {
@@ -40,26 +147,30 @@ class SearchLogo extends React.Component {
       <div>
         {/* <img src="" alt="Logo" /> */}
         <div className="search">
-          <Form>
-            <Form.Group className="search-group" controlId="formGridState">
+          <Form onSubmit={this.handleSubmit}>
+            <Form.Group className="search-group">
               <Form.Control
+                id="select"
                 className="select-input"
                 as="select"
                 name="searchType"
                 value={searchType}
-                onChange={this.handleChange}
+                placeholder="Choose type of search..."
+                onChange={this.handleChangeDropdown}
               >
-                <option value="">Choose search type...</option>
-                <option value="Ingredients">By Ingredients</option>
-                <option value="Drinks">By Drinks</option>
+                <option value="" hidden>
+                  Choose search type...
+                </option>
+                <option value="Ingredients">By Ingredient</option>
+                <option value="Drinks">By Drink Name</option>
               </Form.Control>
               <Form.Control
+                id="search"
                 className="search-input"
                 name="searchInputText"
                 value={searchInputText}
                 placeholder="Enter ingredient or drink name..."
-                onChange={this.handleChange}
-                autoComplete="off"
+                onChange={this.handleChangeText}
               />
               <Button onClick={this.handleSearch}>Search</Button>
             </Form.Group>
