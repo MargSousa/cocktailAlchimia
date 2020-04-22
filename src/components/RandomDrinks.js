@@ -11,11 +11,15 @@ class RandomDrinks extends React.Component {
     };
   }
 
-  getRandomDrinks = () => {
-    let newData = [];
-    const url = `https://www.thecocktaildb.com/api/json/v1/1/random.php`;
+  componentDidMount() {
+    this.getRandomDrinks();
+  }
 
-    for (let i = 0; i < 10; i++) {
+  getRandomDrinks = () => {
+    const newData = [];
+    const url = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+
+    for (let i = 0; i < 10; i += 1) {
       axios
         .get(url)
         .then((response) => response.data)
@@ -29,10 +33,6 @@ class RandomDrinks extends React.Component {
     }
   };
 
-  componentDidMount() {
-    this.getRandomDrinks();
-  }
-
   render() {
     const { randomDrinks } = this.state;
     return (
@@ -43,11 +43,9 @@ class RandomDrinks extends React.Component {
           flexWrap: 'wrap',
         }}
       >
-        {randomDrinks.map((randomDrink) => {
-          return (
-            <DrinkCard key={randomDrink.idDrink} drinkInfo={randomDrink} />
-          );
-        })}
+        {randomDrinks.map((randomDrink) => (
+          <DrinkCard key={randomDrink.idDrink} drinkInfo={randomDrink} />
+        ))}
       </div>
     );
   }

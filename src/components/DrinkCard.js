@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './normalize.css';
 import './DrinkCard.css';
 
@@ -13,5 +14,11 @@ function DrinkCard(props) {
     </div>
   );
 }
+
+DrinkCard.propTypes = {
+  drinkInfo: PropTypes.string.isRequired,
+  strDrinkThumb: PropTypes.string.isRequired,
+  strDrink: PropTypes.string.isRequired,
+};
 
 export default DrinkCard;
