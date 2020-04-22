@@ -36,7 +36,13 @@ class RandomDrinks extends React.Component {
   render() {
     const { randomDrinks } = this.state;
     return (
-      <div>
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'row',
+          flexWrap: 'wrap',
+        }}
+      >
         {randomDrinks.map((randomDrink) => {
           return (
             <DrinkCard key={randomDrink.idDrink} drinkInfo={randomDrink} />
