@@ -1,4 +1,5 @@
 import React from 'react';
+import RandomDrinks from './RandomDrinks';
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -7,7 +8,7 @@ class Homepage extends React.Component {
   }
 
   render() {
-    return <h1>Homepage </h1>;
+    return <RandomDrinks />;
   }
 }
 export default Homepage;
