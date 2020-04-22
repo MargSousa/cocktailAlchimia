@@ -1,5 +1,10 @@
+.SearchLogo {
+  background-color: #0c192c;
+  padding: 30px 0px 30px 0px;
+}
+
 .search {
-  height: 200px;
+  padding: 10px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -8,33 +13,55 @@
 }
 
 .search-group {
+  margin: 0px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 }
 
 .select-input {
-  width: 220px;
+  width: 250px;
+  margin: 5px 0px;
 }
 
 .search-input {
-  width: 300px;
+  width: 250px;
+  margin: 5px 0px;
 }
 
-.valid {
-  border: 1px solid rgb(211, 211, 211);
+Button {
+  margin: 5px;
+  background-color: #ba01ff !important;
+  border: 1px solid #ba01ff !important;
+  /* background-color: #228dff !important;
+  border: 1px solid #228dff !important; */
+}
+/* back #0C192C */
+/* roxo #BA01FF */
+/* amarelo #B6FF00 */
+/* azul-claro #228DFF */
+/* rosa #FF0092 */
+
+.divImagem {
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
-.error {
-  border: 1px solid red;
+img {
+  width: 250px;
+  height: 250px;
+  margin: 20px;
+  box-shadow: 0 0 20px #b6ff00;
 }
 
-@media (max-width: 640px) {
-  .select-input {
-    margin: 3px 0px 3px 60px;
-  }
+img:hover {
+  box-shadow: 0 0 20px #ba01ff;
+}
 
-  .search-input {
-    margin: 3px 0px 3px 60px;
+@media (max-width: 680px) {
+  .search-group {
+    width: 250px;
   }
 }

@@ -4,11 +4,6 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import './SearchLogo.css';
 
-// Search cocktail by name
-// https://www.thecocktaildb.com/api/json/v1/1/search.php?s=margarita
-// Search by ingredient
-// https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=Gin
-
 class SearchLogo extends React.Component {
   constructor(props) {
     super(props);
@@ -144,8 +139,10 @@ class SearchLogo extends React.Component {
     const { searchInputText } = this.state;
 
     return (
-      <div>
-        {/* <img src="" alt="Logo" /> */}
+      <div className="SearchLogo">
+        <div className="divImagem">
+          <img src="https://i.imgur.com/vLhf37l.png" alt="Logo" />
+        </div>
         <div className="search">
           <Form onSubmit={this.handleSubmit}>
             <Form.Group className="search-group">
@@ -172,7 +169,9 @@ class SearchLogo extends React.Component {
                 placeholder="Enter ingredient or drink name..."
                 onChange={this.handleChangeText}
               />
-              <Button onClick={this.handleSearch}>Search</Button>
+              <div>
+                <Button onClick={this.handleSearch}>Search</Button>
+              </div>
             </Form.Group>
           </Form>
         </div>
