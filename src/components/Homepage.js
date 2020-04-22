@@ -1,5 +1,6 @@
 import React from 'react';
 import RandomDrinks from './RandomDrinks';
+import './homepage.css';
 
 class Homepage extends React.Component {
   constructor(props) {
