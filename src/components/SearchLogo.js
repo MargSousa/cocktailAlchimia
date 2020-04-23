@@ -47,7 +47,7 @@ class SearchLogo extends React.Component {
 
     if (value !== '') {
       const formSelect = document.getElementById('select');
-      formSelect.style.border = '1px solid #b6ff00;';
+      formSelect.style.border = '1px solid #b6ff00';
     }
 
     this.setState({
@@ -72,7 +72,7 @@ class SearchLogo extends React.Component {
 
     if (value !== '') {
       const formSelect = document.getElementById('search');
-      formSelect.style.border = '1px solid #b6ff00;';
+      formSelect.style.border = '1px solid #b6ff00';
     }
 
     this.setState({
@@ -177,6 +177,7 @@ class SearchLogo extends React.Component {
                   value={searchInputText}
                   placeholder="Enter search item..."
                   onChange={this.handleChangeText}
+                  autocomplete="off"
                 />
                 <div>
                   <img

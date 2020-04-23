@@ -35,36 +35,25 @@
 .input-select {
   width: 200px;
 }
+
 .input-search {
   width: 300px;
 }
 
-.input::placeholder {
-  color: white;
-}
-
-.input:focus {
-  background-color: #0c192c;
-  color: white;
-}
-
-input {
-  background-color: #0c192c;
-  color: white;
-}
-
 .input:active,
 .input:focus,
-.input:focus:active {
+.input:focus:active,
+.input::placeholder {
   background-color: #0c192c !important;
   color: white;
   border-color: #ba01ff;
 }
 
-/* Button {
-  background-color: #0c192c !important;
-  border: 1px solid #0c192c !important; 
-} */
+input:-webkit-autofill,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0px 1000px #0c192c inset !important;
+  -webkit-text-fill-color: white;
+}
 
 .divImagem {
   justify-content: center;
