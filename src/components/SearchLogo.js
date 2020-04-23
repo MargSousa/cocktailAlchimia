@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
+import ModalPopup from './ModalPopup';
 import './SearchLogo.css';
 
 class SearchLogo extends React.Component {
@@ -12,33 +13,11 @@ class SearchLogo extends React.Component {
       searchInputText: '',
       isCocktailSelected: false,
       isIngredientSelected: false,
+      isPopupShowing: false,
+      errorMessageType: false,
+      errorMessageText: false,
     };
   }
-
-  // handleChange = (event) => {
-  //   event.preventDefault();
-  //   const { value, name } = event.target;
-  //   const isSelected = true;
-  //   const { searchType } = this.state;
-
-  //   this.setState({
-  //     [name]: value,
-  //   });
-
-  //   if (searchType === 'Ingredients') {
-  //     console.log('ingredients');
-  //     this.setState({
-  //       isCocktailSelected: !isSelected,
-  //       isIngredientSelected: isSelected,
-  //     });
-  //   } else if (searchType === 'Drinks') {
-  //     console.log('drinks');
-  //     this.setState({
-  //       isCocktailSelected: isSelected,
-  //       isIngredientSelected: !isSelected,
-  //     });
-  //   }
-  // };
 
   handleChangeDropdown = (event) => {
     event.preventDefault();
@@ -46,13 +25,8 @@ class SearchLogo extends React.Component {
     const isSelected = true;
 
     if (value !== '') {
-      const formSelect = document.getElementById('select');
-      formSelect.style.border = '1px solid #b6ff00';
+      this.setState({ errorMessageType: false, searchType: value });
     }
-
-    this.setState({
-      searchType: value,
-    });
 
     if (value === 'Ingredients') {
       this.setState({
@@ -69,25 +43,20 @@ class SearchLogo extends React.Component {
 
   handleChangeText = (event) => {
     const { value } = event.target;
-
     if (value !== '') {
-      const formSelect = document.getElementById('search');
-      formSelect.style.border = '1px solid #b6ff00';
+      this.setState({ errorMessageText: false, searchInputText: value });
     }
-
-    this.setState({
-      searchInputText: value,
-    });
   };
 
   getDrinksData = () => {
     let url = '';
-    const { isCocktailSelected } = this.state;
-    const { isIngredientSelected } = this.state;
-    const { searchInputText } = this.state;
-    const getIngredient = searchInputText;
-    const urlByName = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${getIngredient}`;
-    const urlByIngredient = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${getIngredient}`;
+    const {
+      isCocktailSelected,
+      isIngredientSelected,
+      searchInputText,
+    } = this.state;
+    const urlByName = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchInputText}`;
+    const urlByIngredient = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${searchInputText}`;
 
     if (isCocktailSelected) {
       url = urlByName;
@@ -100,10 +69,9 @@ class SearchLogo extends React.Component {
       .then((response) => response.data)
       .then((dataresult) => {
         const results = dataresult.drinks;
-        if (results === '') {
-          alert('Sorry, no results found. Please do another search!');
+        if (results === null || results === undefined) {
+          this.handleModal();
         } else {
-          console.log('results', results);
           this.setState({
             searchResults: results,
           });
@@ -112,28 +80,38 @@ class SearchLogo extends React.Component {
   };
 
   validateInput = () => {
-    const { searchType } = this.state;
-    const { searchInputText } = this.state;
+    const { searchType, searchInputText } = this.state;
 
     if (searchType === '') {
-      const formSelect = document.getElementById('select');
-      formSelect.style.border = '1px solid red';
+      this.setState({ errorMessageType: true });
     }
     if (searchInputText === '') {
-      const formSelect = document.getElementById('search');
-      formSelect.style.border = '1px solid red';
+      this.setState({ errorMessageText: true });
+    }
+    if (searchType !== '' && searchInputText !== '') {
+      this.getDrinksData();
     }
   };
 
   handleSearch = (event) => {
     event.preventDefault();
     this.validateInput();
-    this.getDrinksData();
+  };
+
+  handleModal = () => {
+    const { isPopupShowing } = this.state;
+    this.setState({ isPopupShowing: !isPopupShowing });
   };
 
   render() {
-    const { searchType } = this.state;
-    const { searchInputText } = this.state;
+    const {
+      searchType,
+      searchInputText,
+      isPopupShowing,
+      errorMessageType,
+      errorMessageText,
+      searchResults,
+    } = this.state;
 
     return (
       <div className="SearchLogo">
@@ -156,7 +134,9 @@ class SearchLogo extends React.Component {
             <Form.Group className="search-group">
               <Form.Control
                 id="select"
-                className="input input-select"
+                className={
+                  errorMessageType ? 'error input-select' : 'input input-select'
+                }
                 as="select"
                 name="searchType"
                 value={searchType}
@@ -173,12 +153,15 @@ class SearchLogo extends React.Component {
                 <Form.Control
                   id="search"
                   as="input"
-                  className="input input-search"
+                  className={
+                    errorMessageText
+                      ? 'error input-search'
+                      : 'input input-search'
+                  }
                   name="searchInputText"
                   value={searchInputText}
                   placeholder="Enter search item..."
                   onChange={this.handleChangeText}
-                  autoComplete="off"
                 />
                 <Button
                   className="button-icon"
@@ -195,6 +178,7 @@ class SearchLogo extends React.Component {
             </Form.Group>
           </Form>
         </div>
+        <ModalPopup show={isPopupShowing} handlemodal={this.handleModal} />
       </div>
     );
   }

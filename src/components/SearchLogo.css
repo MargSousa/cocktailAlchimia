@@ -29,13 +29,11 @@
 .input {
   background-color: #0c192c !important;
   color: white !important;
-  border: 1px solid #b6ff00;
+  border: 1px solid #b6ff00 !important;
 }
-
 .input-select {
   width: 200px;
 }
-
 .input-search {
   width: 300px;
 }
@@ -49,9 +47,15 @@
   border-color: #ba01ff;
 }
 
-input:-webkit-autofill,
-input:-webkit-autofill:active {
-  -webkit-box-shadow: 0 0 0px 1000px #0c192c inset !important;
+.error {
+  background-color: #0c192c !important;
+  color: white !important;
+  border: 1px solid #ff073a !important;
+}
+
+.input:-webkit-autofill,
+.input:-webkit-autofill:active {
+  box-shadow: 0 0 0px 1000px #0c192c inset !important;
   -webkit-text-fill-color: white;
 }
 
