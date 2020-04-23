@@ -80,12 +80,29 @@ input:-webkit-autofill:active {
   position: relative;
 }
 
-.search-icon {
+.button-icon {
   position: absolute;
+  width: 25px;
+  height: 25px;
+  bottom: 6px;
+  right: 10px;
+  background-color: #0c192c;
+  border: 1px solid #0c192c;
+}
+
+.button-icon:hover,
+.button-icon:focus {
+  background-color: #0c192c !important;
+  border: 1px solid #0c192c !important;
+  outline: 0px !important;
+  box-shadow: none !important;
+}
+
+.search-icon {
   width: 22px;
   position: absolute;
-  bottom: 8px;
-  right: 10px;
+  bottom: 1px;
+  right: 1px;
   cursor: pointer;
 }
 

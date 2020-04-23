@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import { Form } from 'react-bootstrap';
+import { Form, Button } from 'react-bootstrap';
 import './SearchLogo.css';
 
 class SearchLogo extends React.Component {
@@ -100,9 +100,10 @@ class SearchLogo extends React.Component {
       .then((response) => response.data)
       .then((dataresult) => {
         const results = dataresult.drinks;
-        if (results === null) {
+        if (results === '') {
           alert('Sorry, no results found. Please do another search!');
         } else {
+          console.log('results', results);
           this.setState({
             searchResults: results,
           });
@@ -146,7 +147,7 @@ class SearchLogo extends React.Component {
         <div className="divImagem">
           <img
             className="bar-image"
-            src="https://imgur.com/vof6KtG.png"
+            src="https://i.imgur.com/PfyfmNI.png"
             alt="Bar"
           />
         </div>
@@ -177,15 +178,19 @@ class SearchLogo extends React.Component {
                   value={searchInputText}
                   placeholder="Enter search item..."
                   onChange={this.handleChangeText}
-                  autocomplete="off"
+                  autoComplete="off"
                 />
-                <div>
+                <Button
+                  className="button-icon"
+                  type="button"
+                  onClick={this.handleSearch}
+                >
                   <img
                     className="search-icon"
-                    src="https://imgur.com/DWULN2V.png"
+                    src="https://i.imgur.com/Zi5OSOM.png"
                     alt="search-icon"
                   />
-                </div>
+                </Button>
               </div>
             </Form.Group>
           </Form>
