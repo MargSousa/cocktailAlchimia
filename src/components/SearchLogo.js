@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
+import { Form } from 'react-bootstrap';
 import './SearchLogo.css';
 
 class SearchLogo extends React.Component {
@@ -48,7 +47,7 @@ class SearchLogo extends React.Component {
 
     if (value !== '') {
       const formSelect = document.getElementById('select');
-      formSelect.style.border = '1px solid grey';
+      formSelect.style.border = '1px solid #b6ff00;';
     }
 
     this.setState({
@@ -73,7 +72,7 @@ class SearchLogo extends React.Component {
 
     if (value !== '') {
       const formSelect = document.getElementById('search');
-      formSelect.style.border = '1px solid grey';
+      formSelect.style.border = '1px solid #b6ff00;';
     }
 
     this.setState({
@@ -125,13 +124,10 @@ class SearchLogo extends React.Component {
     }
   };
 
-  handleSearch = () => {
+  handleSearch = (event) => {
+    event.preventDefault();
     this.validateInput();
     this.getDrinksData();
-  };
-
-  handleSubmit = (event) => {
-    event.preventDefault();
   };
 
   render() {
@@ -155,11 +151,11 @@ class SearchLogo extends React.Component {
           />
         </div>
         <div className="search-section">
-          <Form onSubmit={this.handleSubmit}>
+          <Form onSubmit={this.handleSearch}>
             <Form.Group className="search-group">
               <Form.Control
                 id="select"
-                className="select-input"
+                className="input input-select"
                 as="select"
                 name="searchType"
                 value={searchType}
@@ -172,16 +168,23 @@ class SearchLogo extends React.Component {
                 <option value="Ingredients">By Ingredient</option>
                 <option value="Drinks">By Drink Name</option>
               </Form.Control>
-              <Form.Control
-                id="search"
-                className="search-input"
-                name="searchInputText"
-                value={searchInputText}
-                placeholder="Enter ingredient or drink name..."
-                onChange={this.handleChangeText}
-              />
-              <div>
-                <Button onClick={this.handleSearch}>Search</Button>
+              <div className="icon-section">
+                <Form.Control
+                  id="search"
+                  as="input"
+                  className="input input-search"
+                  name="searchInputText"
+                  value={searchInputText}
+                  placeholder="Enter search item..."
+                  onChange={this.handleChangeText}
+                />
+                <div>
+                  <img
+                    className="search-icon"
+                    src="https://imgur.com/DWULN2V.png"
+                    alt="search-icon"
+                  />
+                </div>
               </div>
             </Form.Group>
           </Form>

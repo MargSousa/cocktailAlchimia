@@ -26,21 +26,45 @@
   justify-content: center;
 }
 
-.select-input {
-  width: 250px;
-  margin: 0px 0px 5px 0px;
+.input {
+  background-color: #0c192c !important;
+  color: white !important;
+  border: 1px solid #b6ff00;
 }
 
-.search-input {
-  width: 250px;
-  margin: 0px 0px 5px 0px;
+.input-select {
+  width: 200px;
+}
+.input-search {
+  width: 300px;
 }
 
-Button {
-  margin: 0px 0px 5px 0px;
-  background-color: #ba01ff !important;
-  border: 1px solid #ba01ff !important;
+.input::placeholder {
+  color: white;
 }
+
+.input:focus {
+  background-color: #0c192c;
+  color: white;
+}
+
+input {
+  background-color: #0c192c;
+  color: white;
+}
+
+.input:active,
+.input:focus,
+.input:focus:active {
+  background-color: #0c192c !important;
+  color: white;
+  border-color: #ba01ff;
+}
+
+/* Button {
+  background-color: #0c192c !important;
+  border: 1px solid #0c192c !important; 
+} */
 
 .divImagem {
   justify-content: center;
@@ -55,31 +79,36 @@ Button {
   box-shadow: 0 0 20px #b6ff00;
 }
 
-.bar-image {
-  width: 30%;
-}
-
 .logo-image:hover {
   box-shadow: 0 0 20px #ba01ff;
 }
 
-@media (max-width: 1000px) {
-  .bar-image {
-    width: 40%;
-  }
+.bar-image {
+  width: 30%;
 }
 
-@media (max-width: 800px) {
-  .bar-image {
-    width: 55%;
-  }
+.icon-section {
+  position: relative;
+}
+
+.search-icon {
+  position: absolute;
+  width: 22px;
+  position: absolute;
+  bottom: 8px;
+  right: 10px;
+  cursor: pointer;
 }
 
 @media (max-width: 680px) {
   .search-group {
-    width: 250px;
+    width: 300px;
   }
   .bar-image {
-    width: 70%;
+    width: 250px;
+  }
+  .input-search,
+  .input-select {
+    width: 250px;
   }
 }
