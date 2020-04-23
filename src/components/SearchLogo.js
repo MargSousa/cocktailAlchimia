@@ -141,9 +141,20 @@ class SearchLogo extends React.Component {
     return (
       <div className="SearchLogo">
         <div className="divImagem">
-          <img src="https://i.imgur.com/vLhf37l.png" alt="Logo" />
+          <img
+            className="logo-image"
+            src="https://i.imgur.com/vLhf37l.png"
+            alt="Logo"
+          />
         </div>
-        <div className="search">
+        <div className="divImagem">
+          <img
+            className="bar-image"
+            src="https://imgur.com/vof6KtG.png"
+            alt="Bar"
+          />
+        </div>
+        <div className="search-section">
           <Form onSubmit={this.handleSubmit}>
             <Form.Group className="search-group">
               <Form.Control
