@@ -1,5 +1,6 @@
 import React from 'react';
-import SearchLogo from './SearchLogo';
+import RandomDrinks from './RandomDrinks';
+import './homepage.css';
 
 class Homepage extends React.Component {
   constructor(props) {
@@ -8,11 +9,7 @@ class Homepage extends React.Component {
   }
 
   render() {
-    return (
-      <div>
-        <SearchLogo />
-      </div>
-    );
+    return <RandomDrinks />;
   }
 }
 export default Homepage;
