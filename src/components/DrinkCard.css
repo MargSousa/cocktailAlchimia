@@ -1,0 +1,32 @@
+.card {
+  width: 150px;
+  height: auto;
+  text-align: center;
+  margin: 20px 40px;
+  font-size: 50%;
+  width: 10rem;
+  border: 3px solid #228dff;
+  box-shadow: 0 0 30px #228dff;
+  background-color: #0c192c;
+}
+.card-title {
+  font-size: 2em;
+  font-family: lato, Arial, Helvetica, sans-serif;
+  color: #228dff;
+  padding-top: 10px;
+}
+.card img {
+  display: block;
+  border: 0;
+  width: 100%;
+  height: auto;
+}
+
+.card:hover {
+  box-shadow: 0 0 20px #ba01ff;
+  border: 3px solid #ba01ff;
+}
+
+.card-title:hover {
+  color: #ba01ff;
+}
