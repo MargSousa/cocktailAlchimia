@@ -6,6 +6,7 @@ import Test from './components/Test';
 import Homepage from './components/Homepage';
 import DetailPage from './components/DetailPage';
 import ResultsPage from './components/ResultsPage';
+import AboutUs from './components/AboutUs';
 
 class App extends React.Component {
   constructor(props) {
@@ -31,6 +32,7 @@ class App extends React.Component {
               component={DetailPage}
             />
             <Route exact path="/drinkinfo/:drink" component={DetailPage} />
+            <Route exact path="/aboutus" component={AboutUs} />
             <Route exact path="/test" component={Test} />
           </Switch>
         </div>
