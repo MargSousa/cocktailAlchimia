@@ -31,6 +31,12 @@
   color: white !important;
   border: 1px solid #b6ff00 !important;
 }
+
+.error {
+  background-color: #0c192c !important;
+  color: white !important;
+  border: 1px solid #ff073a !important;
+}
 .input-select {
   width: 200px;
 }
@@ -45,12 +51,6 @@
   background-color: #0c192c !important;
   color: white;
   border-color: #ba01ff;
-}
-
-.error {
-  background-color: #0c192c !important;
-  color: white !important;
-  border: 1px solid #ff073a !important;
 }
 
 .input:-webkit-autofill,

@@ -79,7 +79,8 @@ class SearchLogo extends React.Component {
       });
   };
 
-  validateInput = () => {
+  handleSearch = (event) => {
+    event.preventDefault();
     const { searchType, searchInputText } = this.state;
 
     if (searchType === '') {
@@ -91,11 +92,6 @@ class SearchLogo extends React.Component {
     if (searchType !== '' && searchInputText !== '') {
       this.getDrinksData();
     }
-  };
-
-  handleSearch = (event) => {
-    event.preventDefault();
-    this.validateInput();
   };
 
   handleModal = () => {
