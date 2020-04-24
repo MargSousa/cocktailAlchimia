@@ -27,7 +27,6 @@ class SearchLogo extends React.Component {
     if (value !== '') {
       this.setState({ errorMessageType: false, searchType: value });
     }
-
     if (value === 'Ingredients') {
       this.setState({
         isCocktailSelected: !isSelected,
@@ -54,6 +53,7 @@ class SearchLogo extends React.Component {
       isCocktailSelected,
       isIngredientSelected,
       searchInputText,
+      searchResults,
     } = this.state;
     const urlByName = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchInputText}`;
     const urlByIngredient = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${searchInputText}`;
@@ -72,6 +72,7 @@ class SearchLogo extends React.Component {
         if (results === null || results === undefined) {
           this.handleModal();
         } else {
+          console.log('results', results);
           this.setState({
             searchResults: results,
           });
@@ -106,7 +107,6 @@ class SearchLogo extends React.Component {
       isPopupShowing,
       errorMessageType,
       errorMessageText,
-      searchResults,
     } = this.state;
 
     return (
@@ -158,6 +158,7 @@ class SearchLogo extends React.Component {
                   value={searchInputText}
                   placeholder="Enter search item..."
                   onChange={this.handleChangeText}
+                  autoComplete="off"
                 />
                 <Button
                   className="button-icon"

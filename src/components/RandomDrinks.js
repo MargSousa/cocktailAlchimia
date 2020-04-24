@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import DrinkCard from './DrinkCard';
-import './RandomDrinks.css';
 
 class RandomDrinks extends React.Component {
   constructor(props) {
@@ -41,6 +40,7 @@ class RandomDrinks extends React.Component {
           display: 'flex',
           flexDirection: 'row',
           flexWrap: 'wrap',
+          justifyContent: 'center',
         }}
       >
         {randomDrinks.map((randomDrink) => (
