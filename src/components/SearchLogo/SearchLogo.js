@@ -42,9 +42,7 @@ class SearchLogo extends React.Component {
 
   handleChangeText = (event) => {
     const { value } = event.target;
-    if (value !== '') {
-      this.setState({ errorMessageText: false, searchInputText: value });
-    }
+    this.setState({ errorMessageText: false, searchInputText: value });
   };
 
   getDrinksData = () => {
@@ -158,7 +156,6 @@ class SearchLogo extends React.Component {
                   value={searchInputText}
                   placeholder="Enter search item..."
                   onChange={this.handleChangeText}
-                  autoComplete="off"
                 />
                 <Button
                   className="button-icon"
