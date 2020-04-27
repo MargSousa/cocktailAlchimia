@@ -2,10 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button, CardColumns } from 'react-bootstrap';
 import './AboutUs.css';
-import Isadora from '../img/isadora.jpg';
-import Fernanda from '../img/fernanda.jpg';
-import Margarida from '../img/margarida.jpg';
-import Roxy from '../img/roxy.jpg';
+import Footer from '../Footer/Footer';
 
 function AboutUs() {
   return (
@@ -20,7 +17,11 @@ function AboutUs() {
         }}
       >
         <Card style={{ width: '15rem' }} className="member-card">
-          <Card.Img className="img-team" src={Isadora} variant="top" />
+          <Card.Img
+            className="img-team"
+            src="https://i.imgur.com/rVd8ZQ9.jpg"
+            variant="top"
+          />
           <Card.Title className="team-member">Isadora Hillebrand</Card.Title>
           <Button
             className="linkedin-button"
@@ -34,7 +35,11 @@ function AboutUs() {
         </Card>
 
         <Card style={{ width: '15rem' }} className="member-card">
-          <Card.Img className="img-team" src={Fernanda} variant="top" />
+          <Card.Img
+            className="img-team"
+            src="https://i.imgur.com/C5RPSxg.jpg"
+            variant="top"
+          />
           <Card.Title className="team-member">Fernanda Abbud</Card.Title>
           <Button
             className="linkedin-button"
@@ -48,7 +53,11 @@ function AboutUs() {
         </Card>
 
         <Card style={{ width: '15rem' }} className="member-card">
-          <Card.Img className="img-team" src={Roxy} variant="top" />
+          <Card.Img
+            className="img-team"
+            src="https://i.imgur.com/nmsiS56.jpg"
+            variant="top"
+          />
           <Card.Title className="team-member">Roxy Pursey</Card.Title>
           <Button
             className="linkedin-button"
@@ -61,7 +70,11 @@ function AboutUs() {
           </Button>
         </Card>
         <Card style={{ width: '15rem' }} className="member-card">
-          <Card.Img className="img-team" src={Margarida} variant="top" />
+          <Card.Img
+            className="img-team"
+            src="https://i.imgur.com/lZq4o8e.jpg"
+            variant="top"
+          />
           <Card.Title className="team-member">Margarida Sousa</Card.Title>
           <Button
             className="linkedin-button"
@@ -74,6 +87,7 @@ function AboutUs() {
           </Button>
         </Card>
       </CardColumns>
+      <Footer />
     </>
   );
 }

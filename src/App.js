@@ -2,10 +2,10 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Homepage from './components/Homepage';
-import DetailPage from './components/DetailPage';
-import ResultsPage from './components/ResultsPage';
-import AboutUs from './components/AboutUs';
+import Homepage from './components/Homepage/Homepage';
+import DetailPage from './components/DetailPage/DetailPage';
+import ResultsPage from './components/ResultsPage/ResultsPage';
+import AboutUs from './components/AboutUs/AboutUs';
 
 class App extends React.Component {
   constructor(props) {
