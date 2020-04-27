@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import DrinkCard from './DrinkCard';
+import DrinkCard from '../DrinkCard/DrinkCard';
 
 class RandomDrinks extends React.Component {
   constructor(props) {

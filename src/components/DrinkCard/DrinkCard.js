@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './Normalize.css';
+import '../../assets/Normalize.css';
 import './DrinkCard.css';
 
 function DrinkCard(props) {

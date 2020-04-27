@@ -1,10 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Footer.css';
 
 function Footer() {
   return (
     <div className="footer">
       <div>
+        <Link to="/aboutus">About Us</Link>
         <span>Created by </span>
         <a href="https://github.com/fabbud">Fernanda </a>
         <span>|</span>

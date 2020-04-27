@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
-import ModalPopup from './ModalPopup';
+import ModalPopup from '../ModalPopup/ModalPopup';
 import './SearchLogo.css';
 
 class SearchLogo extends React.Component {
