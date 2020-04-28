@@ -1,12 +1,13 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import DrinkCard from '../DrinkCard/DrinkCard';
 import './ResultsPage.css';
 
 function ResultsPage(props) {
-  const searchResults = props.location.state.searchResults;
-  const searchInputText = props.location.state.searchInputText;
-  console.log(searchResults);
-  console.log(searchInputText);
+  const { location } = props;
+  const { state } = location;
+  const { searchResults } = state;
+  const { searchInputText } = state;
   return (
     <>
       <h1>Search results for {searchInputText}</h1>
@@ -25,5 +26,9 @@ function ResultsPage(props) {
     </>
   );
 }
+
+ResultsPage.propTypes = {
+  location: PropTypes.string.isRequired,
+};
 
 export default ResultsPage;
