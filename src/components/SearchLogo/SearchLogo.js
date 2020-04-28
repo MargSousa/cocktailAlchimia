@@ -3,6 +3,7 @@ import axios from 'axios';
 import { Form, Button } from 'react-bootstrap';
 import ModalPopup from '../ModalPopup/ModalPopup';
 import './SearchLogo.css';
+import { withRouter } from 'react-router-dom';
 
 class SearchLogo extends React.Component {
   constructor(props) {
@@ -70,9 +71,9 @@ class SearchLogo extends React.Component {
         if (results === null || results === undefined) {
           this.handleModal();
         } else {
-          console.log('results', results);
-          this.setState({
-            searchResults: results,
+          this.props.history.push({
+            pathname: '/results/:search',
+            state: { searchResults: results, searchInputText },
           });
         }
       });
@@ -178,4 +179,4 @@ class SearchLogo extends React.Component {
   }
 }
 
-export default SearchLogo;
+export default withRouter(SearchLogo);

@@ -5,7 +5,7 @@ import './DrinkCard.css';
 
 function DrinkCard(props) {
   const { drinkInfo } = props;
-  console.log({ drinkInfo });
+  //console.log({ drinkInfo });
 
   return (
     <div className="card">
