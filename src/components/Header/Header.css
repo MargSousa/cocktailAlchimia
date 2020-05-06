@@ -1,0 +1,59 @@
+.Header {
+  background-color: #0c192c;
+}
+
+.images-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 10px;
+}
+
+.header-logo {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  box-shadow: 0 0 20px #b6ff00;
+}
+
+.header-logo:hover {
+  box-shadow: 0 0 20px #ba01ff;
+}
+
+.header-image {
+  width: 250px;
+  height: 120px;
+}
+
+/* BUTTON TO HOMEPAGE */
+
+.arrow-button {
+  cursor: pointer;
+  width: 90px;
+  height: 45px;
+  margin: 0px 0px 0px 70px;
+  background-image: url("https://i.imgur.com/zlQpDFX.png");
+  background-size: 90px 45px;
+}
+
+.arrow-button:hover {
+  background-image: url("https://imgur.com/dYIixX2.png");
+}
+
+@media (max-width: 500px) {
+  .header-logo {
+    width: 120px;
+    height: 120px;
+  }
+  .header-image {
+    width: 190px;
+    height: 100px;
+  }
+
+  .arrow-button {
+    width: 60px;
+    height: 30px;
+    background-size: 60px 30px;
+  }
+}
