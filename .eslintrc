@@ -10,6 +10,7 @@
     "no-tabs": [0],
     "no-mixed-spaces-and-tabs": [0],
     "linebreak-style": [2, "windows"],
-    "object-curly-newline": "off"
+    "object-curly-newline": "off",
+    "react/jsx-one-expression-per-line": "off"
   }
 }
