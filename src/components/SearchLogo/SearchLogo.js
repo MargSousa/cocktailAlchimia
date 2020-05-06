@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 import { Form, Button } from 'react-bootstrap';
+import { withRouter } from 'react-router-dom';
 import ModalPopup from '../ModalPopup/ModalPopup';
 import './SearchLogo.css';
 
@@ -8,7 +10,6 @@ class SearchLogo extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchResults: [],
       searchType: '',
       searchInputText: '',
       isCocktailSelected: false,
@@ -46,12 +47,12 @@ class SearchLogo extends React.Component {
   };
 
   getDrinksData = () => {
+    const { history } = this.props;
     let url = '';
     const {
       isCocktailSelected,
       isIngredientSelected,
       searchInputText,
-      searchResults,
     } = this.state;
     const urlByName = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchInputText}`;
     const urlByIngredient = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${searchInputText}`;
@@ -70,9 +71,9 @@ class SearchLogo extends React.Component {
         if (results === null || results === undefined) {
           this.handleModal();
         } else {
-          console.log('results', results);
-          this.setState({
-            searchResults: results,
+          history.push({
+            pathname: '/results/:search',
+            state: { searchResults: results, searchInputText },
           });
         }
       });
@@ -178,4 +179,8 @@ class SearchLogo extends React.Component {
   }
 }
 
-export default SearchLogo;
+SearchLogo.propTypes = {
+  history: PropTypes.string.isRequired,
+};
+
+export default withRouter(SearchLogo);

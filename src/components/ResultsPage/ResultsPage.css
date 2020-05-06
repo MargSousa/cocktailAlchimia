@@ -1,0 +1,8 @@
+@font-face {
+  font-family: Grotters;
+  src: url(../../assets/Grotters.ttf);
+}
+h1 {
+  font-family: Grotters;
+  color: #b6ff00;
+}
