@@ -15,14 +15,9 @@ function Header() {
         </Link>
         <img
           className="header-image"
-          src="https://i.imgur.com/CPOfn13.png"
+          src="https://i.imgur.com/5zLG7i9.png"
           alt="alchimia"
         />
-      </div>
-      <div>
-        <Link to="/">
-          <div className="arrow-button" />
-        </Link>
       </div>
     </div>
   );

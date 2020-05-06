@@ -2,7 +2,49 @@
   font-family: Grotters;
   src: url(../../assets/Grotters.ttf);
 }
+
 h1 {
   font-family: Grotters;
   color: #b6ff00;
+}
+
+.searchtitle {
+  margin-left: 15px;
+  font-size: 40px;
+}
+
+.title-section {
+  margin-left: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.arrow-button {
+  cursor: pointer;
+  width: 60px;
+  height: 45px;
+  background-image: url('https://i.imgur.com/zlQpDFX.png');
+  background-size: 60px 45px;
+}
+
+.arrow-button:hover {
+  background-image: url('https://imgur.com/dYIixX2.png');
+}
+
+@media (max-width: 550px) {
+  .searchtitle {
+    font-size: 28px;
+  }
+
+  .title-section {
+    margin-left: 40px;
+  }
+
+  .arrow-button {
+    cursor: pointer;
+    width: 45px;
+    height: 30px;
+    background-size: 45px 30px;
+  }
 }

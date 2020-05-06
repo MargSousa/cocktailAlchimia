@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Homepage from './components/Homepage/Homepage';
@@ -17,10 +17,6 @@ class App extends React.Component {
     return (
       <Router>
         <div>
-          <Link to="/">Home</Link>
-          <Link to="/results/:search">Results</Link>
-          <Link to="/results/drinkinfo/:drink">Detailed Drink Info</Link>
-          <Link to="/drinkinfo/:drink">Pick from Random Drinks</Link>
           <Switch>
             <Route exact path="/" component={Homepage} />
             <Route exact path="/results/:search" component={ResultsPage} />
