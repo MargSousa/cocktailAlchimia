@@ -1,13 +1,23 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Card, Button, CardColumns } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import './AboutUs.css';
+import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
 function AboutUs() {
   return (
     <>
-      <h1 className="about-us"> About Us </h1>
+      <Header />
+      <div className="title-section">
+        <div>
+          <Link to="/">
+            <div className="arrow-button" />
+          </Link>
+        </div>
+        <h1 className="searchtitle"> About Us </h1>
+      </div>
       <CardColumns
         style={{
           display: 'flex',

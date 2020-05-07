@@ -6,11 +6,13 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="imgFooter-div">
-        <img
-          className="logo-img"
-          src="https://i.imgur.com/vLhf37l.png"
-          alt="Logo"
-        />
+        <Link to="/">
+          <img
+            className="logo-img"
+            src="https://i.imgur.com/vLhf37l.png"
+            alt="Logo"
+          />
+        </Link>
       </div>
       <div className="about-wcs">
         <div className="aboutus">

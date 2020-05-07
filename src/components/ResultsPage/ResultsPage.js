@@ -1,6 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import DrinkCard from '../DrinkCard/DrinkCard';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 import './ResultsPage.css';
 
 function ResultsPage(props) {
@@ -10,7 +13,15 @@ function ResultsPage(props) {
   const { searchInputText } = state;
   return (
     <>
-      <h1>Search results for {searchInputText}</h1>
+      <Header />
+      <div className="title-section">
+        <div>
+          <Link to="/">
+            <div className="arrow-button" />
+          </Link>
+        </div>
+        <h1 className="searchtitle">Search results for {searchInputText};</h1>
+      </div>
       <div
         style={{
           display: 'flex',
@@ -23,6 +34,7 @@ function ResultsPage(props) {
           <DrinkCard key={drink.idDrink} drinkInfo={drink} />
         ))}
       </div>
+      <Footer />
     </>
   );
 }
