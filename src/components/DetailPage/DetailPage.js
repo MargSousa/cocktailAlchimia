@@ -1,4 +1,7 @@
 import React from 'react';
+import DrinkInformation from '../DrinkInformation/DrinkInformation';
+import Header from '../Header/Header';
+import Footer from '../Footer/Footer';
 
 class DetailPage extends React.Component {
   constructor(props) {
@@ -11,7 +14,14 @@ class DetailPage extends React.Component {
   };
 
   render() {
-    return <h1>Detail Page</h1>;
+    const information = this.props.location.state;
+    return (
+      <div className="Detail-Page">
+        <Header />
+        <DrinkInformation drinkDetails={information} />
+        <Footer />
+      </div>
+    );
   }
 }
 export default DetailPage;
