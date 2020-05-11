@@ -6,6 +6,10 @@ class DetailPage extends React.Component {
     this.state = {};
   }
 
+  componentDidMount = () => {
+    window.scrollTo(0, 0);
+  };
+
   render() {
     return <h1>Detail Page</h1>;
   }
