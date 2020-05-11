@@ -54,6 +54,7 @@ class SearchLogo extends React.Component {
       isIngredientSelected,
       searchInputText,
     } = this.state;
+
     const urlByName = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchInputText}`;
     const urlByIngredient = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${searchInputText}`;
 
@@ -70,7 +71,29 @@ class SearchLogo extends React.Component {
         const results = dataresult.drinks;
         if (results === null || results === undefined) {
           this.handleModal();
+        } else if (isIngredientSelected) {
+          const resultIds = results.map((result) => result.idDrink);
+          const newResults = [];
+
+          for (let i = 0; i < resultIds.length; i += 1) {
+            const urlById = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${resultIds[i]}`;
+            axios
+              .get(urlById)
+              .then((response) => response.data)
+              .then((getIdData) => {
+                newResults.push(getIdData.drinks[0]);
+              });
+          }
+          console.log('ing', newResults);
+          console.log('ing', typeof newResults);
+
+          history.push({
+            pathname: '/results/:search',
+            state: { searchResults: newResults, searchInputText },
+          });
         } else {
+          console.log('drink', results);
+          console.log('drink', typeof results);
           history.push({
             pathname: '/results/:search',
             state: { searchResults: results, searchInputText },

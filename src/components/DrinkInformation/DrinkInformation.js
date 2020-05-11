@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import './DrinkInformation.css';
 
@@ -6,50 +7,52 @@ class DrinkInformation extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      drinkInfo: this.props.drinkDetails,
+      drinkInformation: this.props.drinkDetails,
       ingredientsMeasures: [],
     };
   }
 
   componentDidMount = () => {
-    const { drinkInfo } = this.state.drinkInfo;
+    const { drinkInformation } = this.state;
+    const drink = drinkInformation.drinkInfo;
+
     const ingredients = [
-      drinkInfo.strIngredient1,
-      drinkInfo.strIngredient2,
-      drinkInfo.strIngredient3,
-      drinkInfo.strIngredient4,
-      drinkInfo.strIngredient5,
-      drinkInfo.strIngredient6,
-      drinkInfo.strIngredient7,
-      drinkInfo.strIngredient8,
-      drinkInfo.strIngredient9,
-      drinkInfo.strIngredient10,
-      drinkInfo.strIngredient11,
-      drinkInfo.strIngredient12,
-      drinkInfo.strIngredient13,
-      drinkInfo.strIngredient14,
-      drinkInfo.strIngredient15,
+      drink.strIngredient1,
+      drink.strIngredient2,
+      drink.strIngredient3,
+      drink.strIngredient4,
+      drink.strIngredient5,
+      drink.strIngredient6,
+      drink.strIngredient7,
+      drink.strIngredient8,
+      drink.strIngredient9,
+      drink.strIngredient10,
+      drink.strIngredient11,
+      drink.strIngredient12,
+      drink.strIngredient13,
+      drink.strIngredient14,
+      drink.strIngredient15,
     ];
     const measures = [
-      drinkInfo.strMeasure1,
-      drinkInfo.strMeasure2,
-      drinkInfo.strMeasure3,
-      drinkInfo.strMeasure4,
-      drinkInfo.strMeasure5,
-      drinkInfo.strMeasure6,
-      drinkInfo.strMeasure7,
-      drinkInfo.strMeasure8,
-      drinkInfo.strMeasure9,
-      drinkInfo.strMeasure10,
-      drinkInfo.strMeasure11,
-      drinkInfo.strMeasure12,
-      drinkInfo.strMeasure13,
-      drinkInfo.strMeasure14,
-      drinkInfo.strMeasure15,
+      drink.strMeasure1,
+      drink.strMeasure2,
+      drink.strMeasure3,
+      drink.strMeasure4,
+      drink.strMeasure5,
+      drink.strMeasure6,
+      drink.strMeasure7,
+      drink.strMeasure8,
+      drink.strMeasure9,
+      drink.strMeasure10,
+      drink.strMeasure11,
+      drink.strMeasure12,
+      drink.strMeasure13,
+      drink.strMeasure14,
+      drink.strMeasure15,
     ];
 
-    let ing = [];
-    for (let i = 0; i < ingredients.length; i++) {
+    const ing = [];
+    for (let i = 0; i < ingredients.length; i += 1) {
       if (ingredients[i] !== null && measures[i] !== null) {
         ing.push(`${ingredients[i]}: ${measures[i]}`);
       } else if (ingredients[i] !== null && measures[i] === null) {
@@ -60,8 +63,8 @@ class DrinkInformation extends React.Component {
   };
 
   render() {
-    const { drinkInfo } = this.state.drinkInfo;
-    const { ingredientsMeasures } = this.state;
+    const { drinkInformation, ingredientsMeasures } = this.state;
+    const drink = drinkInformation.drinkInfo;
 
     return (
       <div className="DrinkInformation">
@@ -71,13 +74,13 @@ class DrinkInformation extends React.Component {
               <div className="arrow-button" />
             </Link>
           </div>
-          <div className="Drink">{drinkInfo.strDrink}</div>
+          <div className="Drink">{drink.strDrink}</div>
         </div>
         <div className="first-section">
           <div className="Image">
             <img
               className="drink-image"
-              src={drinkInfo.strDrinkThumb}
+              src={drink.strDrinkThumb}
               alt="Drink"
             />
           </div>
@@ -92,11 +95,15 @@ class DrinkInformation extends React.Component {
         </div>
         <div className="Method">
           <div className="title recipe-title">Recipe:</div>
-          <div className="recipe-text">{drinkInfo.strInstructions}</div>
+          <div className="recipe-text">{drink.strInstructions}</div>
         </div>
       </div>
     );
   }
 }
+
+DrinkInformation.propTypes = {
+  drinkDetails: PropTypes.string.isRequired,
+};
 
 export default DrinkInformation;

@@ -12,6 +12,8 @@ function ResultsPage(props) {
   const { searchResults } = state;
   const { searchInputText } = state;
 
+  console.log('final', searchResults);
+
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
