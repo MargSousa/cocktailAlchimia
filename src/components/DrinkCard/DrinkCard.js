@@ -1,13 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router-dom';
 import '../../assets/Normalize.css';
 import './DrinkCard.css';
 
 function DrinkCard(props) {
   const { drinkInfo } = props;
 
+  function handleDrinkInformation() {
+    props.history.push({
+      pathname: '/results/drinkinfo/:drink',
+      state: { drinkInfo },
+    });
+  }
+
   return (
-    <div className="card">
+    <div className="card" onClick={handleDrinkInformation}>
       <img src={drinkInfo.strDrinkThumb} alt={drinkInfo.strDrink} />
       <h2 className="card-title">{drinkInfo.strDrink}</h2>
     </div>
@@ -20,4 +28,4 @@ DrinkCard.propTypes = {
   strDrink: PropTypes.string.isRequired,
 };
 
-export default DrinkCard;
+export default withRouter(DrinkCard);
