@@ -54,6 +54,7 @@ class SearchLogo extends React.Component {
       isIngredientSelected,
       searchInputText,
     } = this.state;
+
     const urlByName = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${searchInputText}`;
     const urlByIngredient = `https://www.thecocktaildb.com/api/json/v1/1/filter.php?i=${searchInputText}`;
 
@@ -71,6 +72,14 @@ class SearchLogo extends React.Component {
         const results = dataresult.drinks;
         if (results === null || results === undefined) {
           this.handleModal();
+        } else if (isIngredientSelected) {
+          this.fetchDrinksById(results)
+            .then((newResults) => {
+              history.push({
+                pathname: '/results/:search',
+                state: { searchResults: newResults, searchInputText },
+              });
+            });
         } else {
           history.push({
             pathname: '/results/:search',
@@ -79,6 +88,22 @@ class SearchLogo extends React.Component {
         }
       });
   };
+
+  fetchDrinksById = async (results) => {
+    const resultIds = results.map((result) => result.idDrink);
+    const newResults = [];
+
+    for (let i = 0; i < resultIds.length; i += 1) {
+      const urlById = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${resultIds[i]}`;
+      await axios
+        .get(urlById)
+        .then((response) => response.data)
+        .then((getIdData) => {
+          newResults.push(getIdData.drinks[0]);
+        });
+    }
+    return newResults;
+  }
 
   handleSearch = (event) => {
     event.preventDefault();

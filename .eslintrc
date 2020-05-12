@@ -9,8 +9,9 @@
     "react/jsx-filename-extension": [0],
     "no-tabs": [0],
     "no-mixed-spaces-and-tabs": [0],
-    "linebreak-style": [2, "windows"],
+    // "linebreak-style": [2, "windows"],
     "object-curly-newline": "off",
-    "react/jsx-one-expression-per-line": "off"
+    "react/jsx-one-expression-per-line": "off",
+    "no-await-in-loop": "off"
   }
 }
