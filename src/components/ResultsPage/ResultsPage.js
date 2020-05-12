@@ -25,7 +25,7 @@ function ResultsPage(props) {
             <div className="arrow-button" />
           </Link>
         </div>
-        <h1 className="searchtitle">Search results for {searchInputText};</h1>
+        <div className="main-title">Search results for {searchInputText};</div>
       </div>
       <div
         style={{
