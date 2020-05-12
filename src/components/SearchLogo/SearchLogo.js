@@ -87,6 +87,7 @@ class SearchLogo extends React.Component {
           console.log('ing', newResults);
           console.log('ing', typeof newResults);
 
+
           history.push({
             pathname: '/results/:search',
             state: { searchResults: newResults, searchInputText },
