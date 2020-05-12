@@ -6,50 +6,48 @@ import './DrinkInformation.css';
 class DrinkInformation extends React.Component {
   constructor(props) {
     super(props);
-    const { drinkDetails } = this.props;
     this.state = {
-      drinkInformation: drinkDetails,
+      drinkInfo: [],
       ingredientsMeasures: [],
     };
   }
 
   componentDidMount = () => {
-    const { drinkInformation } = this.state;
-    const drink = drinkInformation.drinkInfo;
+    const { drinkDetails } = this.props;
 
     const ingredients = [
-      drink.strIngredient1,
-      drink.strIngredient2,
-      drink.strIngredient3,
-      drink.strIngredient4,
-      drink.strIngredient5,
-      drink.strIngredient6,
-      drink.strIngredient7,
-      drink.strIngredient8,
-      drink.strIngredient9,
-      drink.strIngredient10,
-      drink.strIngredient11,
-      drink.strIngredient12,
-      drink.strIngredient13,
-      drink.strIngredient14,
-      drink.strIngredient15,
+      drinkDetails.strIngredient1,
+      drinkDetails.strIngredient2,
+      drinkDetails.strIngredient3,
+      drinkDetails.strIngredient4,
+      drinkDetails.strIngredient5,
+      drinkDetails.strIngredient6,
+      drinkDetails.strIngredient7,
+      drinkDetails.strIngredient8,
+      drinkDetails.strIngredient9,
+      drinkDetails.strIngredient10,
+      drinkDetails.strIngredient11,
+      drinkDetails.strIngredient12,
+      drinkDetails.strIngredient13,
+      drinkDetails.strIngredient14,
+      drinkDetails.strIngredient15,
     ];
     const measures = [
-      drink.strMeasure1,
-      drink.strMeasure2,
-      drink.strMeasure3,
-      drink.strMeasure4,
-      drink.strMeasure5,
-      drink.strMeasure6,
-      drink.strMeasure7,
-      drink.strMeasure8,
-      drink.strMeasure9,
-      drink.strMeasure10,
-      drink.strMeasure11,
-      drink.strMeasure12,
-      drink.strMeasure13,
-      drink.strMeasure14,
-      drink.strMeasure15,
+      drinkDetails.strMeasure1,
+      drinkDetails.strMeasure2,
+      drinkDetails.strMeasure3,
+      drinkDetails.strMeasure4,
+      drinkDetails.strMeasure5,
+      drinkDetails.strMeasure6,
+      drinkDetails.strMeasure7,
+      drinkDetails.strMeasure8,
+      drinkDetails.strMeasure9,
+      drinkDetails.strMeasure10,
+      drinkDetails.strMeasure11,
+      drinkDetails.strMeasure12,
+      drinkDetails.strMeasure13,
+      drinkDetails.strMeasure14,
+      drinkDetails.strMeasure15,
     ];
 
     const ing = [];
@@ -60,12 +58,15 @@ class DrinkInformation extends React.Component {
         ing.push(ingredients[i]);
       }
     }
-    this.setState({ ingredientsMeasures: ing });
+    this.setState({
+      ingredientsMeasures: ing,
+      drinkInfo: drinkDetails,
+    });
   };
 
   render() {
-    const { drinkInformation, ingredientsMeasures } = this.state;
-    const drink = drinkInformation.drinkInfo;
+    const { drinkInfo } = this.state;
+    const { ingredientsMeasures } = this.state;
 
     return (
       <div className="DrinkInformation">
@@ -75,13 +76,13 @@ class DrinkInformation extends React.Component {
               <div className="arrow-button" />
             </Link>
           </div>
-          <div className="Drink">{drink.strDrink}</div>
+          <div className="Drink">{drinkInfo.strDrink}</div>
         </div>
         <div className="first-section">
           <div className="Image">
             <img
               className="drink-image"
-              src={drink.strDrinkThumb}
+              src={drinkInfo.strDrinkThumb}
               alt="Drink"
             />
           </div>
@@ -96,7 +97,7 @@ class DrinkInformation extends React.Component {
         </div>
         <div className="Method">
           <div className="title recipe-title">Recipe:</div>
-          <div className="recipe-text">{drink.strInstructions}</div>
+          <div className="recipe-text">{drinkInfo.strInstructions}</div>
         </div>
       </div>
     );
