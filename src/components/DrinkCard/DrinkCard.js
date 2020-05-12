@@ -8,8 +8,9 @@ function DrinkCard(props) {
   const { drinkInfo } = props;
 
   function handleDrinkInformation() {
+    let drinkName = drinkInfo.strDrink.split(' ').join('_');
     props.history.push({
-      pathname: '/results/drinkinfo/:drink',
+      pathname: `/results/drinkinfo/${drinkName}`,
       state: { drinkInfo },
     });
   }

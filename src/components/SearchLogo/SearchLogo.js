@@ -73,16 +73,15 @@ class SearchLogo extends React.Component {
         if (results === null || results === undefined) {
           this.handleModal();
         } else if (isIngredientSelected) {
-          this.fetchDrinksById(results)
-            .then((newResults) => {
-              history.push({
-                pathname: '/results/:search',
-                state: { searchResults: newResults, searchInputText },
-              });
+          this.fetchDrinksById(results).then((newResults) => {
+            history.push({
+              pathname: `/results/${searchInputText}`,
+              state: { searchResults: newResults, searchInputText },
             });
+          });
         } else {
           history.push({
-            pathname: '/results/:search',
+            pathname: `/results/${searchInputText}`,
             state: { searchResults: results, searchInputText },
           });
         }
@@ -103,7 +102,7 @@ class SearchLogo extends React.Component {
         });
     }
     return newResults;
-  }
+  };
 
   handleSearch = (event) => {
     event.preventDefault();

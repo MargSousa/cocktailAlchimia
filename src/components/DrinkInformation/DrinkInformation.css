@@ -18,13 +18,6 @@
   margin-left: 130px;
 }
 
-.Drink {
-  padding: 20px;
-  font-family: Grotters;
-  color: #b6ff00;
-  font-size: 40px;
-}
-
 .Image {
   padding: 0px 30px;
   display: flex;
@@ -78,9 +71,6 @@
   }
   .drink-image {
     width: 150px;
-  }
-  .Drink {
-    font-size: 28px;
   }
   .Ingredients {
     margin-left: 20px;

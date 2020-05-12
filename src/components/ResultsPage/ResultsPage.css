@@ -3,14 +3,12 @@
   src: url(../../assets/Grotters.ttf);
 }
 
-h1 {
+.main-title {
   font-family: Grotters;
   color: #b6ff00;
-}
-
-.searchtitle {
   margin-left: 15px;
   font-size: 40px;
+  margin: 10px 0px 20px 20px;
 }
 
 .title-section {
@@ -33,7 +31,8 @@ h1 {
 }
 
 @media (max-width: 550px) {
-  .searchtitle {
+  .main-title {
+    margin-top: 20px;
     font-size: 28px;
   }
 

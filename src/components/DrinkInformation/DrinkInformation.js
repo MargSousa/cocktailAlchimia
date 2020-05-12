@@ -67,7 +67,6 @@ class DrinkInformation extends React.Component {
   render() {
     const { drinkInfo } = this.state;
     const { ingredientsMeasures } = this.state;
-
     return (
       <div className="DrinkInformation">
         <div className="title-section">
@@ -76,7 +75,7 @@ class DrinkInformation extends React.Component {
               <div className="arrow-button" />
             </Link>
           </div>
-          <div className="Drink">{drinkInfo.strDrink}</div>
+          <div className="main-title">{drinkInfo.strDrink}</div>
         </div>
         <div className="first-section">
           <div className="Image">
