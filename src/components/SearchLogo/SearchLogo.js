@@ -62,6 +62,7 @@ class SearchLogo extends React.Component {
     } else if (isIngredientSelected) {
       url = urlByIngredient;
     }
+    console.log(url);
 
     axios
       .get(url)
