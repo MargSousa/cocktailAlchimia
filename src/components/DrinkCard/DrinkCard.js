@@ -15,17 +15,18 @@ function DrinkCard(props) {
   }
 
   return (
-    <div className="card" onClick={handleDrinkInformation}>
-      <img src={drinkInfo.strDrinkThumb} alt={drinkInfo.strDrink} />
-      <h2 className="card-title">{drinkInfo.strDrink}</h2>
-    </div>
+    <a href="true" className="card" onClick={handleDrinkInformation}>
+      <div>
+        <img src={drinkInfo.strDrinkThumb} alt={drinkInfo.strDrink} />
+        <h2 className="card-title">{drinkInfo.strDrink}</h2>
+      </div>
+    </a>
   );
 }
 
 DrinkCard.propTypes = {
-  drinkInfo: PropTypes.string.isRequired,
-  strDrinkThumb: PropTypes.string.isRequired,
-  strDrink: PropTypes.string.isRequired,
+  drinkInfo: PropTypes.arrayOf(PropTypes.object).isRequired,
+  history: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default withRouter(DrinkCard);

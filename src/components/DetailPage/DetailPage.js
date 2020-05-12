@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import DrinkInformation from '../DrinkInformation/DrinkInformation';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -14,7 +15,9 @@ class DetailPage extends React.Component {
   };
 
   render() {
-    const information = this.props.location.state;
+    const { location } = this.props;
+    const information = location.state;
+
     return (
       <div className="Detail-Page">
         <Header />
@@ -24,4 +27,9 @@ class DetailPage extends React.Component {
     );
   }
 }
+
+DetailPage.propTypes = {
+  location: PropTypes.string.isRequired,
+};
+
 export default DetailPage;
