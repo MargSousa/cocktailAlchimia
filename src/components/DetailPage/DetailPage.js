@@ -16,7 +16,7 @@ class DetailPage extends React.Component {
 
   render() {
     const { location } = this.props;
-    const information = location.state;
+    const information = location.state.drinkInfo;
 
     return (
       <div className="Detail-Page">
