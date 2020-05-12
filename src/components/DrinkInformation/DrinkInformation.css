@@ -1,0 +1,102 @@
+.DrinkInformation {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-wrap: wrap;
+  color: #b6ff00;
+}
+
+.title-section {
+  display: flex;
+  flex-direction: row;
+}
+
+.first-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-left: 130px;
+}
+
+.Drink {
+  padding: 20px;
+  font-family: Grotters;
+  color: #b6ff00;
+  font-size: 40px;
+}
+
+.Image {
+  padding: 0px 30px;
+  display: flex;
+  justify-content: left;
+  margin-bottom: 30px;
+}
+
+.Ingredients {
+  padding: 0px 20px;
+}
+
+.Method {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+}
+
+.drink-image {
+  width: 400px;
+  border: 6px solid #4e0668;
+}
+
+.title {
+  font-family: Grotters;
+  font-size: 34px;
+}
+
+.ingredient-title {
+  margin-left: 20px;
+}
+
+.ingredient-text {
+  font-size: 20px;
+}
+/* .recipe-title {
+  margin-left: 110px;
+} */
+
+.recipe-text {
+  font-size: 20px;
+  width: 75%;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+@media (max-width: 768px) {
+  .first-section {
+    margin-left: 0px;
+    flex-direction: column;
+  }
+  .drink-image {
+    width: 150px;
+  }
+  .Ingredients {
+    margin-left: 20px;
+    justify-content: center;
+  }
+  .Image {
+    justify-content: center;
+  }
+  .Method {
+    margin-left: 0px;
+  }
+  .title {
+    font-size: 30px;
+  }
+  .ingredient-text,
+  .recipe-text {
+    font-size: 16px;
+  }
+  .recipe-title {
+    margin-top: 10px;
+  }
+}
