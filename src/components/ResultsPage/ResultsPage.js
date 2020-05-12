@@ -7,15 +7,10 @@ import Footer from '../Footer/Footer';
 import './ResultsPage.css';
 
 function ResultsPage(props) {
-  // const { location } = props;
-  // const { state } = location;
-  // const { searchResults } = state;
-  // const { searchInputText } = state;
-
-  // console.log('state', props.location);
-  // console.log('final', searchResults.length);
-  // console.log('final', searchResults);
-  console.log('final output', props.location.state.searchResults.length);
+  const { location } = props;
+  const { state } = location;
+  const { searchResults } = state;
+  const { searchInputText } = state;
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -30,7 +25,7 @@ function ResultsPage(props) {
             <div className="arrow-button" />
           </Link>
         </div>
-        {/* <h1 className="searchtitle">Search results for {searchInputText};</h1> */}
+        <h1 className="searchtitle">Search results for {searchInputText};</h1>
       </div>
       <div
         style={{
@@ -40,9 +35,9 @@ function ResultsPage(props) {
           justifyContent: 'center',
         }}
       >
-        {/* {searchResults.map((drink) => (
+        {searchResults.map((drink) => (
           <DrinkCard key={drink.idDrink} drinkInfo={drink} />
-        ))} */}
+        ))}
       </div>
       <Footer />
     </>

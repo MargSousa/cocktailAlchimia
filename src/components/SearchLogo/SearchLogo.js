@@ -72,29 +72,14 @@ class SearchLogo extends React.Component {
         if (results === null || results === undefined) {
           this.handleModal();
         } else if (isIngredientSelected) {
-          const resultIds = results.map((result) => result.idDrink);
-          const newResults = [];
-
-          for (let i = 0; i < resultIds.length; i += 1) {
-            const urlById = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${resultIds[i]}`;
-            axios
-              .get(urlById)
-              .then((response) => response.data)
-              .then((getIdData) => {
-                newResults.push(getIdData.drinks[0]);
+          this.fetchDrinksById(results)
+            .then((newResults) => {
+              history.push({
+                pathname: '/results/:search',
+                state: { searchResults: newResults, searchInputText },
               });
-          }
-          console.log('ing', newResults);
-          console.log('ing', typeof newResults);
-
-
-          history.push({
-            pathname: '/results/:search',
-            state: { searchResults: newResults, searchInputText },
-          });
+            });
         } else {
-          console.log('drink', results);
-          console.log('drink', typeof results);
           history.push({
             pathname: '/results/:search',
             state: { searchResults: results, searchInputText },
@@ -102,6 +87,22 @@ class SearchLogo extends React.Component {
         }
       });
   };
+
+  fetchDrinksById = async (results) => {
+    const resultIds = results.map((result) => result.idDrink);
+    const newResults = [];
+
+    for (let i = 0; i < resultIds.length; i += 1) {
+      const urlById = `https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${resultIds[i]}`;
+      await axios
+        .get(urlById)
+        .then((response) => response.data)
+        .then((getIdData) => {
+          newResults.push(getIdData.drinks[0]);
+        });
+    }
+    return newResults;
+  }
 
   handleSearch = (event) => {
     event.preventDefault();

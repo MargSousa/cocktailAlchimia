@@ -6,8 +6,9 @@ import './DrinkInformation.css';
 class DrinkInformation extends React.Component {
   constructor(props) {
     super(props);
+    const { drinkDetails } = this.props;
     this.state = {
-      drinkInformation: this.props.drinkDetails,
+      drinkInformation: drinkDetails,
       ingredientsMeasures: [],
     };
   }
