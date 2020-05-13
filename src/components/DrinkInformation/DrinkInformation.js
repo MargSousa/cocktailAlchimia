@@ -67,11 +67,13 @@ class DrinkInformation extends React.Component {
   render() {
     const { drinkInfo } = this.state;
     const { ingredientsMeasures } = this.state;
+    const prevPath = JSON.parse(localStorage.getItem('prevPath'));
+
     return (
       <div className="DrinkInformation">
         <div className="title-section">
           <div>
-            <Link to="/">
+            <Link to={prevPath}>
               <div className="arrow-button" />
             </Link>
           </div>

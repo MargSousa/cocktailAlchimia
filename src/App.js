@@ -22,11 +22,11 @@ class App extends React.Component {
             <Route exact path="/results/:search" component={ResultsPage} />
             <Route
               exact
-              path="/results/drinkinfo/:drink"
+              path="/results/:search/:drink"
               component={DetailPage}
             />
-            <Route exact path="/drinkinfo/:drink" component={DetailPage} />
-            <Route exact path="/aboutus" component={AboutUs} />
+            <Route exact path="/:drink" component={DetailPage} />
+            <Route exact path="/about/team" component={AboutUs} />
           </Switch>
         </div>
       </Router>

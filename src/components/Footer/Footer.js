@@ -16,7 +16,7 @@ function Footer() {
       </div>
       <div className="about-wcs">
         <div className="aboutus">
-          <Link to="/aboutus">About Us </Link>
+          <Link to="/about/team">About Us </Link>
         </div>
         <div className="team">
           <a href="https://github.com/fabbud">Fernanda </a>

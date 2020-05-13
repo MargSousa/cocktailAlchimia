@@ -12,6 +12,9 @@ class Homepage extends React.Component {
 
   componentDidMount = () => {
     window.scrollTo(0, 0);
+    localStorage.setItem('prevPath', JSON.stringify('/'));
+    localStorage.setItem('searchResults', JSON.stringify(''));
+    localStorage.setItem('searchInputText', JSON.stringify(''));
   };
 
   render() {

@@ -6,11 +6,19 @@ import './DrinkCard.css';
 
 function DrinkCard(props) {
   const { drinkInfo } = props;
+  const searchInputText = JSON.parse(localStorage.getItem('searchInputText'));
+  const prevPath = JSON.parse(localStorage.getItem('prevPath'));
 
   function handleDrinkInformation() {
-    let drinkName = drinkInfo.strDrink.split(' ').join('_');
+    const drinkName = drinkInfo.strDrink.split(' ').join('_');
+    let nextPath = '';
+    if (prevPath === '/') {
+      nextPath = `/${drinkName}`;
+    } else {
+      nextPath = `/results/${searchInputText}/${drinkName}`;
+    }
     props.history.push({
-      pathname: `/results/drinkinfo/${drinkName}`,
+      pathname: nextPath,
       state: { drinkInfo },
     });
   }
