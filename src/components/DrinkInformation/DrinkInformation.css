@@ -33,6 +33,7 @@
 
 .drink-image {
   width: 350px;
+  height: 350px;
   border: 6px solid #4e0668;
 }
 
@@ -63,6 +64,7 @@
   }
   .drink-image {
     width: 150px;
+    height: 150px;
   }
   .Ingredients {
     margin-left: 20px;
