@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './ShareInfo.css';
 import {
   EmailShareButton,
@@ -11,46 +12,55 @@ import {
   TwitterIcon,
 } from 'react-share';
 
-const ShareInfo = () => {
-  const pageUrl = String(window.location);
-  const mainText = 'Check out this drink information:';
-  const emailSubject = 'Explore CocktailAlchimia';
+const ShareInfo = (props) => {
+  // const pageUrl = String(window.location);
+  const { drinkName } = props;
+  const pageUrl = 'https://sleepy-einstein-34773d.netlify.app/';
+  const mainText = `Learn how to make a "${drinkName}" with Cocktail Alchimia:`;
+  const emailSubject = `Discover on Cocktail Alchimia: "${drinkName}"`;
   const facebookHashtag = '#cocktailalchimia';
   const twitterAccount = 'CocktailAlchimia';
   const twitterHashtag = ['drink', 'quarantine', 'partyhouse'];
-  const twitterText = `Check out this drink information: ${pageUrl}`;
+  const twitterText = `Learn how to make a "${drinkName}" with the Cocktail Alchimia app:`;
 
   return (
     <div className="share-section">
       <div className="share-label">Click to share:</div>
       <div>
-        <EmailShareButton url={pageUrl} subject={emailSubject} body={mainText}>
-          <EmailIcon className="share-icon" round size={30} />
+        <EmailShareButton className="share-button" url={pageUrl} subject={emailSubject} body={mainText}>
+          <EmailIcon round size={30} />
         </EmailShareButton>
 
-        <WhatsappShareButton url={pageUrl} title={mainText}>
-          <WhatsappIcon className="share-icon" round size={30} />
+        <WhatsappShareButton className="share-button" url={pageUrl} title={mainText}>
+          <WhatsappIcon round size={30} />
         </WhatsappShareButton>
 
         <FacebookShareButton
+          className="share-button"
           url={pageUrl}
           quote={mainText}
           hashtag={facebookHashtag}
         >
-          <FacebookIcon className="share-icon" round size={30} />
+          <FacebookIcon round size={30} />
         </FacebookShareButton>
 
         <TwitterShareButton
+          className="share-button"
           url={pageUrl}
           title={twitterText}
           via={twitterAccount}
           hashtags={twitterHashtag}
         >
-          <TwitterIcon className="share-icon" round size={30} />
+          <TwitterIcon round size={30} />
         </TwitterShareButton>
       </div>
     </div>
   );
 };
+
+ShareInfo.propTypes = {
+  drinkName: PropTypes.string.isRequired,
+};
+
 
 export default ShareInfo;
