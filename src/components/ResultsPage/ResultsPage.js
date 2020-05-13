@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
+import Switch from 'react-switch';
 import DrinkCard from '../DrinkCard/DrinkCard';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
@@ -14,6 +14,12 @@ function ResultsPage() {
     window.scrollTo(0, 0);
   }, []);
 
+  const [showNonAlcoholic, setShowNonAlcoholic] = useState(false);
+
+  function handleFilter() {
+    setShowNonAlcoholic(!showNonAlcoholic);
+  }
+
   return (
     <>
       <Header />
@@ -25,6 +31,21 @@ function ResultsPage() {
         </div>
         <div className="main-title">Search results for {searchInputText}</div>
       </div>
+      <div className="filter-section">
+        <div>All results</div>
+        <Switch
+          onChange={handleFilter}
+          checked={showNonAlcoholic}
+          checkedIcon=""
+          uncheckedIcon=""
+          offColor="#4e0668"
+          onColor="#b6ff00"
+          className="filter"
+          height={18}
+          width={38}
+        />
+        <div>Non-Alcoholic</div>
+      </div>
       <div
         style={{
           display: 'flex',
@@ -33,17 +54,17 @@ function ResultsPage() {
           justifyContent: 'center',
         }}
       >
-        {searchResults.map((drink) => (
-          <DrinkCard key={drink.idDrink} drinkInfo={drink} />
-        ))}
+        {searchResults
+          .filter(
+            (drink) => !showNonAlcoholic || drink.strAlcoholic === 'Non alcoholic',
+          )
+          .map((drink) => (
+            <DrinkCard key={drink.idDrink} drinkInfo={drink} />
+          ))}
       </div>
       <Footer />
     </>
   );
 }
-
-ResultsPage.propTypes = {
-  location: PropTypes.string.isRequired,
-};
 
 export default ResultsPage;

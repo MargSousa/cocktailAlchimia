@@ -14,42 +14,13 @@ class DrinkInformation extends React.Component {
 
   componentDidMount = () => {
     const { drinkDetails } = this.props;
+    const ingredients = [];
+    const measures = [];
 
-    const ingredients = [
-      drinkDetails.strIngredient1,
-      drinkDetails.strIngredient2,
-      drinkDetails.strIngredient3,
-      drinkDetails.strIngredient4,
-      drinkDetails.strIngredient5,
-      drinkDetails.strIngredient6,
-      drinkDetails.strIngredient7,
-      drinkDetails.strIngredient8,
-      drinkDetails.strIngredient9,
-      drinkDetails.strIngredient10,
-      drinkDetails.strIngredient11,
-      drinkDetails.strIngredient12,
-      drinkDetails.strIngredient13,
-      drinkDetails.strIngredient14,
-      drinkDetails.strIngredient15,
-    ];
-    const measures = [
-      drinkDetails.strMeasure1,
-      drinkDetails.strMeasure2,
-      drinkDetails.strMeasure3,
-      drinkDetails.strMeasure4,
-      drinkDetails.strMeasure5,
-      drinkDetails.strMeasure6,
-      drinkDetails.strMeasure7,
-      drinkDetails.strMeasure8,
-      drinkDetails.strMeasure9,
-      drinkDetails.strMeasure10,
-      drinkDetails.strMeasure11,
-      drinkDetails.strMeasure12,
-      drinkDetails.strMeasure13,
-      drinkDetails.strMeasure14,
-      drinkDetails.strMeasure15,
-    ];
-
+    for (let i = 1; i <= 15; i += 1) {
+      ingredients.push(drinkDetails[`strIngredient${i}`]);
+      measures.push(drinkDetails[`strMeasure${i}`]);
+    }
     const ing = [];
     for (let i = 0; i < ingredients.length; i += 1) {
       if (ingredients[i] !== null && measures[i] !== null) {

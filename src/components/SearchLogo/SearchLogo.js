@@ -46,8 +46,24 @@ class SearchLogo extends React.Component {
     this.setState({ errorMessageText: false, searchInputText: value });
   };
 
-  getDrinksData = () => {
+  handleLocalStorage = (searchText, results) => {
     const { history } = this.props;
+    localStorage.setItem(
+      'prevPath',
+      JSON.stringify(`/results/${searchText}`),
+    );
+    localStorage.setItem('searchResults', JSON.stringify(results));
+    localStorage.setItem(
+      'searchInputText',
+      JSON.stringify(searchText),
+    );
+    history.push({
+      pathname: `/results/${searchText}`,
+      state: { searchResults: results, searchText },
+    });
+  }
+
+  getDrinksData = () => {
     let url = '';
     const {
       isCocktailSelected,
@@ -63,7 +79,6 @@ class SearchLogo extends React.Component {
     } else if (isIngredientSelected) {
       url = urlByIngredient;
     }
-    console.log(url);
 
     axios
       .get(url)
@@ -74,34 +89,10 @@ class SearchLogo extends React.Component {
           this.handleModal();
         } else if (isIngredientSelected) {
           this.fetchDrinksById(results).then((newResults) => {
-            localStorage.setItem(
-              'prevPath',
-              JSON.stringify(`/results/${searchInputText}`),
-            );
-            localStorage.setItem('searchResults', JSON.stringify(newResults));
-            localStorage.setItem(
-              'searchInputText',
-              JSON.stringify(searchInputText),
-            );
-            history.push({
-              pathname: `/results/${searchInputText}`,
-              state: { searchResults: newResults, searchInputText },
-            });
+            this.handleLocalStorage(searchInputText, newResults);
           });
         } else {
-          localStorage.setItem(
-            'prevPath',
-            JSON.stringify(`/results/${searchInputText}`),
-          );
-          localStorage.setItem('searchResults', JSON.stringify(results));
-          localStorage.setItem(
-            'searchInputText',
-            JSON.stringify(searchInputText),
-          );
-          history.push({
-            pathname: `/results/${searchInputText}`,
-            state: { searchResults: results, searchInputText },
-          });
+          this.handleLocalStorage(searchInputText, results);
         }
       });
   };
