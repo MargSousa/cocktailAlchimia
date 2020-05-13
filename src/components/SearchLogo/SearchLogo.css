@@ -26,8 +26,18 @@
   justify-content: center;
 }
 
+/* Removes the glow from the select on mac and adds arrows */
+select{
+  background: url("https://imgur.com/D6LIUYg.png") no-repeat 95% 50%;
+  background-size: 8%;
+	-moz-appearance: none; 
+	-webkit-appearance: none; 
+	appearance: none;
+}
+
 .input {
-  background-color: #0c192c !important;
+  appearance: menu;
+  background-color: transparent;
   color: white !important;
   border: 1px solid #b6ff00 !important;
 }
@@ -111,6 +121,9 @@
 }
 
 @media (max-width: 680px) {
+  select{
+    background-size: 7%;
+  }
   .search-group {
     width: 300px;
   }
