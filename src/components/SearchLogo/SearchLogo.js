@@ -74,12 +74,30 @@ class SearchLogo extends React.Component {
           this.handleModal();
         } else if (isIngredientSelected) {
           this.fetchDrinksById(results).then((newResults) => {
+            localStorage.setItem(
+              'prevPath',
+              JSON.stringify(`/results/${searchInputText}`),
+            );
+            localStorage.setItem('searchResults', JSON.stringify(newResults));
+            localStorage.setItem(
+              'searchInputText',
+              JSON.stringify(searchInputText),
+            );
             history.push({
               pathname: `/results/${searchInputText}`,
               state: { searchResults: newResults, searchInputText },
             });
           });
         } else {
+          localStorage.setItem(
+            'prevPath',
+            JSON.stringify(`/results/${searchInputText}`),
+          );
+          localStorage.setItem('searchResults', JSON.stringify(results));
+          localStorage.setItem(
+            'searchInputText',
+            JSON.stringify(searchInputText),
+          );
           history.push({
             pathname: `/results/${searchInputText}`,
             state: { searchResults: results, searchInputText },

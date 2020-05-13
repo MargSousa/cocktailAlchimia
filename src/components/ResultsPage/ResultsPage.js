@@ -6,11 +6,9 @@ import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 import './ResultsPage.css';
 
-function ResultsPage(props) {
-  const { location } = props;
-  const { state } = location;
-  const { searchResults } = state;
-  const { searchInputText } = state;
+function ResultsPage() {
+  const searchResults = JSON.parse(localStorage.getItem('searchResults'));
+  const searchInputText = JSON.parse(localStorage.getItem('searchInputText'));
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -25,7 +23,7 @@ function ResultsPage(props) {
             <div className="arrow-button" />
           </Link>
         </div>
-        <div className="main-title">Search results for {searchInputText};</div>
+        <div className="main-title">Search results for {searchInputText}</div>
       </div>
       <div
         style={{

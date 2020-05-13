@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './AboutUs.css';
 import { Card, Button, CardColumns } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import './AboutUs.css';
 import Header from '../Header/Header';
 import Footer from '../Footer/Footer';
 
@@ -20,7 +20,7 @@ function AboutUs() {
             <div className="arrow-button" />
           </Link>
         </div>
-        <h1 className="searchtitle"> About Us </h1>
+        <div className="main-title"> About Us </div>
       </div>
       <CardColumns
         style={{

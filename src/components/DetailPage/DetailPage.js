@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import DrinkInformation from '../DrinkInformation/DrinkInformation';
 import Header from '../Header/Header';
+import DrinkInformation from '../DrinkInformation/DrinkInformation';
 import ShareInfo from '../ShareInfo/ShareInfo';
 import Footer from '../Footer/Footer';
 
@@ -18,8 +18,6 @@ class DetailPage extends React.Component {
   render() {
     const { location } = this.props;
     const information = location.state.drinkInfo;
-
-    console.log(this.props.location);
 
     return (
       <div className="Detail-Page">
