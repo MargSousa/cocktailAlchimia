@@ -1,0 +1,124 @@
+/* back #0C192C */
+/* roxo #BA01FF */
+/* amarelo #B6FF00 */
+/* azul-claro #228DFF */
+/* rosa #FF0092 */
+
+.SearchLogo {
+  background-color: #0c192c;
+  padding: 40px 0px 30px 0px;
+}
+
+.search-section {
+  padding: 0px 10px 10px 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-group {
+  margin: 0px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  background-color: #0c192c !important;
+  color: white !important;
+  border: 1px solid #b6ff00 !important;
+}
+
+.error {
+  background-color: #0c192c !important;
+  color: white !important;
+  border: 1px solid #ff073a !important;
+}
+.input-select {
+  width: 200px;
+}
+.input-search {
+  width: 300px;
+}
+
+.input:active,
+.input:focus,
+.input:focus:active,
+.input::placeholder {
+  background-color: #0c192c !important;
+  color: white;
+  border-color: #ba01ff;
+}
+
+.input:-webkit-autofill,
+.input:-webkit-autofill:active {
+  box-shadow: 0 0 0px 1000px #0c192c inset !important;
+  -webkit-text-fill-color: white;
+}
+
+.divImagem {
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.logo-image {
+  width: 200px;
+  height: 200px;
+  margin: 20px;
+  box-shadow: 0 0 20px #b6ff00;
+}
+
+.logo-image:hover {
+  box-shadow: 0 0 20px #ba01ff;
+}
+
+.bar-image {
+  width: 30%;
+}
+
+.icon-section {
+  position: relative;
+}
+
+.button-icon {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  bottom: 6px;
+  right: 10px;
+  background-color: #0c192c;
+  border: 1px solid #0c192c;
+}
+
+.button-icon:hover,
+.button-icon:focus {
+  background-color: #0c192c !important;
+  border: 1px solid #0c192c !important;
+  outline: 0px !important;
+  box-shadow: none !important;
+}
+
+.search-icon {
+  width: 22px;
+  position: absolute;
+  bottom: 1px;
+  right: 1px;
+  cursor: pointer;
+}
+
+@media (max-width: 680px) {
+  .search-group {
+    width: 300px;
+  }
+  .bar-image {
+    width: 250px;
+  }
+  .input-search,
+  .input-select {
+    width: 250px;
+  }
+}
