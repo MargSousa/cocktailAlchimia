@@ -18,12 +18,13 @@ class DetailPage extends React.Component {
   render() {
     const { location } = this.props;
     const information = location.state.drinkInfo;
+    const drinkName = information.strDrink;
 
     return (
       <div className="Detail-Page">
         <Header />
         <DrinkInformation drinkDetails={information} />
-        <ShareInfo />
+        <ShareInfo drinkName={drinkName} />
         <Footer />
       </div>
     );
