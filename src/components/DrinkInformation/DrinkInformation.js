@@ -24,7 +24,7 @@ class DrinkInformation extends React.Component {
     const ing = [];
     for (let i = 0; i < ingredients.length; i += 1) {
       if (ingredients[i] !== null && measures[i] !== null) {
-        ing.push(`${ingredients[i]}: ${measures[i]}`);
+        ing.push(`${measures[i]} ${ingredients[i]}`);
       } else if (ingredients[i] !== null && measures[i] === null) {
         ing.push(ingredients[i]);
       }

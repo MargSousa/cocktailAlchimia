@@ -14,7 +14,7 @@ import {
 const ShareInfo = () => {
   const pageUrl = String(window.location);
   const mainText = 'Check out this drink information:';
-  const emailSubject = 'Explore the CocktailAlchimia';
+  const emailSubject = 'Explore CocktailAlchimia';
   const facebookHashtag = '#cocktailalchimia';
   const twitterAccount = 'CocktailAlchimia';
   const twitterHashtag = ['drink', 'quarantine', 'partyhouse'];

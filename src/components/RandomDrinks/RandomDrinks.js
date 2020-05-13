@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import './RandomDrinks.css';
 import DrinkCard from '../DrinkCard/DrinkCard';
 
 class RandomDrinks extends React.Component {
@@ -35,14 +36,7 @@ class RandomDrinks extends React.Component {
   render() {
     const { randomDrinks } = this.state;
     return (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-        }}
-      >
+      <div className="random-section">
         {randomDrinks.map((randomDrink) => (
           <DrinkCard key={randomDrink.idDrink} drinkInfo={randomDrink} />
         ))}
