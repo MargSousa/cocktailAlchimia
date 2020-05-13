@@ -12,13 +12,12 @@ import {
 } from 'react-share';
 
 const ShareInfo = () => {
-  //const pageUrl = String(window.location);
-  const pageUrl = `www.cocktailAlchimia.com/`;
-  const mainText = `Check out this drink information:`;
-  const emailSubject = `Explore the CocktailAlchimia`;
-  const facebookHashtag = `#cocktailalchimia`;
-  const twitterAccount = `CocktailAlchimia`;
-  const twitterHashtag = [`drink`, `quarantine`, `partyhouse`];
+  const pageUrl = String(window.location);
+  const mainText = 'Check out this drink information:';
+  const emailSubject = 'Explore the CocktailAlchimia';
+  const facebookHashtag = '#cocktailalchimia';
+  const twitterAccount = 'CocktailAlchimia';
+  const twitterHashtag = ['drink', 'quarantine', 'partyhouse'];
   const twitterText = `Check out this drink information: ${pageUrl}`;
 
   return (
@@ -26,11 +25,11 @@ const ShareInfo = () => {
       <div className="share-label">Click to share:</div>
       <div>
         <EmailShareButton url={pageUrl} subject={emailSubject} body={mainText}>
-          <EmailIcon className="share-icon" round={true} size={30} />
+          <EmailIcon className="share-icon" round size={30} />
         </EmailShareButton>
 
         <WhatsappShareButton url={pageUrl} title={mainText}>
-          <WhatsappIcon className="share-icon" round={true} size={30} />
+          <WhatsappIcon className="share-icon" round size={30} />
         </WhatsappShareButton>
 
         <FacebookShareButton
@@ -38,7 +37,7 @@ const ShareInfo = () => {
           quote={mainText}
           hashtag={facebookHashtag}
         >
-          <FacebookIcon className="share-icon" round={true} size={30} />
+          <FacebookIcon className="share-icon" round size={30} />
         </FacebookShareButton>
 
         <TwitterShareButton
@@ -47,7 +46,7 @@ const ShareInfo = () => {
           via={twitterAccount}
           hashtags={twitterHashtag}
         >
-          <TwitterIcon className="share-icon" round={true} size={30} />
+          <TwitterIcon className="share-icon" round size={30} />
         </TwitterShareButton>
       </div>
     </div>
