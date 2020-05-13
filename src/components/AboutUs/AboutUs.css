@@ -1,11 +1,36 @@
+.about-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .member-card {
   text-align: center;
+  width: 12rem !important;
+  height: 17.5rem;
 }
 
 .team-member {
   margin-top: 10px;
+  padding: 0px;
 }
 
 .linkedin-button {
   margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+  .member-card {
+    width: 8rem !important;
+    height: 12.5rem;
+  }
+  .team-member {
+    font-size: 14px;
+    margin-top: 13px;
+  }
+
+  .linkedin-button {
+    width: 7.65rem;
+  }
 }

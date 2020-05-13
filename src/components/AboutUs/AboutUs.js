@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import './AboutUs.css';
 import { Card, Button, CardColumns } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
@@ -22,15 +21,8 @@ function AboutUs() {
         </div>
         <div className="main-title"> About Us </div>
       </div>
-      <CardColumns
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          justifyContent: 'space-around',
-        }}
-      >
-        <Card style={{ width: '15rem' }} className="member-card">
+      <CardColumns className="about-section">
+        <Card className="member-card">
           <Card.Img
             className="img-team"
             src="https://i.imgur.com/rVd8ZQ9.jpg"
@@ -48,7 +40,7 @@ function AboutUs() {
           </Button>
         </Card>
 
-        <Card style={{ width: '15rem' }} className="member-card">
+        <Card className="member-card">
           <Card.Img
             className="img-team"
             src="https://i.imgur.com/C5RPSxg.jpg"
@@ -66,7 +58,7 @@ function AboutUs() {
           </Button>
         </Card>
 
-        <Card style={{ width: '15rem' }} className="member-card">
+        <Card className="member-card">
           <Card.Img
             className="img-team"
             src="https://i.imgur.com/nmsiS56.jpg"
@@ -83,7 +75,7 @@ function AboutUs() {
             LinkedIn
           </Button>
         </Card>
-        <Card style={{ width: '15rem' }} className="member-card">
+        <Card className="member-card">
           <Card.Img
             className="img-team"
             src="https://i.imgur.com/lZq4o8e.jpg"

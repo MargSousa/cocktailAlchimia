@@ -46,17 +46,11 @@ function ResultsPage() {
         />
         <div>Non-Alcoholic</div>
       </div>
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          flexWrap: 'wrap',
-          justifyContent: 'center',
-        }}
-      >
+      <div className="results-section">
         {searchResults
           .filter(
-            (drink) => !showNonAlcoholic || drink.strAlcoholic === 'Non alcoholic',
+            (drink) =>
+              !showNonAlcoholic || drink.strAlcoholic === 'Non alcoholic',
           )
           .map((drink) => (
             <DrinkCard key={drink.idDrink} drinkInfo={drink} />
