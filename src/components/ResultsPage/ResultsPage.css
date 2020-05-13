@@ -1,0 +1,78 @@
+@font-face {
+  font-family: Grotters;
+  src: url(../../assets/Grotters.ttf);
+}
+
+.results-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.main-title {
+  font-family: Grotters;
+  color: #b6ff00;
+  margin-left: 15px;
+  font-size: 40px;
+  margin: 10px 0px 0px 20px;
+}
+
+.title-section {
+  margin-left: 80px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.arrow-button {
+  margin-top: 10px;
+  cursor: pointer;
+  width: 60px;
+  height: 45px;
+  background-image: url('https://i.imgur.com/zlQpDFX.png');
+  background-size: 60px 45px;
+}
+
+.arrow-button:hover {
+  background-image: url('https://imgur.com/dYIixX2.png');
+}
+
+.filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  align-items: center;
+  color: #228dff;
+  font-size: 14px;
+  margin: 0px 130px 10px 0px;
+}
+
+.filter {
+  margin: 0px 10px;
+}
+
+@media (max-width: 550px) {
+  .main-title {
+    margin-top: 10px;
+    font-size: 28px;
+  }
+
+  .title-section {
+    margin-top: 0px;
+    margin-left: 40px;
+  }
+
+  .arrow-button {
+    margin-top: 10px;
+    cursor: pointer;
+    width: 45px;
+    height: 30px;
+    background-size: 45px 30px;
+  }
+
+  .filter-section {
+    margin: 10px 0px 5px 0px;
+    justify-content: center;
+  }
+}
