@@ -12,25 +12,25 @@ class RandomDrinks extends React.Component {
   }
 
   componentDidMount() {
-    this.getRandomDrinks();
+    this.getRandomDrinks().then((newData) => {
+      this.setState({
+        randomDrinks: newData,
+      });
+    });
   }
 
-  getRandomDrinks = () => {
+  getRandomDrinks = async () => {
     const newData = [];
-    const url = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
-
     for (let i = 0; i < 10; i += 1) {
-      axios
+      const url = 'https://www.thecocktaildb.com/api/json/v1/1/random.php';
+      await axios
         .get(url)
         .then((response) => response.data)
         .then((drinksData) => {
           newData.push(drinksData.drinks[0]);
-
-          this.setState({
-            randomDrinks: newData,
-          });
         });
     }
+    return newData;
   };
 
   render() {

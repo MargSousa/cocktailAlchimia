@@ -19,13 +19,13 @@ function Footer() {
           <Link to="/about/team">About Us </Link>
         </div>
         <div className="team">
-          <a href="https://github.com/fabbud">Fernanda </a>
+          <a href="https://github.com/fabbud" target="blank_">Fernanda </a>
           <span>|</span>
-          <a href="https://github.com/isadorahaashillebrand"> Isadora </a>
+          <a href="https://github.com/isadorahaashillebrand" target="blank_"> Isadora </a>
           <span>|</span>
-          <a href="https://github.com/MargSousa"> Margarida </a>
+          <a href="https://github.com/MargSousa" target="blank_"> Margarida </a>
           <span>|</span>
-          <a href="https://github.com/RoxyPursey"> Roxy</a>
+          <a href="https://github.com/RoxyPursey" target="blank_"> Roxy</a>
         </div>
         <div className="wcs">
           <a href="https://www.wildcodeschool.com">

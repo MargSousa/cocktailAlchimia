@@ -28,11 +28,11 @@ const ShareInfo = (props) => {
       <div className="share-label">Click to share:</div>
       <div>
         <EmailShareButton className="share-button" url={pageUrl} subject={emailSubject} body={mainText}>
-          <EmailIcon round size={30} />
+          <EmailIcon className="share-icon" round size={30} />
         </EmailShareButton>
 
         <WhatsappShareButton className="share-button" url={pageUrl} title={mainText}>
-          <WhatsappIcon round size={30} />
+          <WhatsappIcon className="share-icon" round size={30} />
         </WhatsappShareButton>
 
         <FacebookShareButton
@@ -41,7 +41,7 @@ const ShareInfo = (props) => {
           quote={mainText}
           hashtag={facebookHashtag}
         >
-          <FacebookIcon round size={30} />
+          <FacebookIcon className="share-icon" round size={30} />
         </FacebookShareButton>
 
         <TwitterShareButton
@@ -51,7 +51,7 @@ const ShareInfo = (props) => {
           via={twitterAccount}
           hashtags={twitterHashtag}
         >
-          <TwitterIcon round size={30} />
+          <TwitterIcon className="share-icon" round size={30} />
         </TwitterShareButton>
       </div>
     </div>
