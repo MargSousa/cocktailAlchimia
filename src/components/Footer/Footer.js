@@ -28,7 +28,7 @@ function Footer() {
           <a href="https://github.com/RoxyPursey" target="blank_"> Roxy</a>
         </div>
         <div className="wcs">
-          <a href="https://www.wildcodeschool.com">
+          <a href="https://www.wildcodeschool.com" target="_blank">
             Wild Code School{' '}
             <span role="img" aria-label="drink">
               🍸
