@@ -32,7 +32,7 @@ function AboutUs() {
           <Button
             className="linkedin-button"
             variant="primary"
-            href="https://www.linkedin.com/in/isadora-hillebrand-bb9489b8/"
+            href="https://www.linkedin.com/in/isadora-haas-hillebrand/"
             target="_blank"
             size="sm"
           >
